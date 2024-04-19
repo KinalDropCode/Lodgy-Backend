@@ -1,0 +1,55 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Lodgy",
+    "dateExported": "2024-04-19T20:33:09.122Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "529c7c07-17d8-49ee-8f6c-ac1d0ee20dc4",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-04-19T20:15:06.859Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "246009f5-5ca8-4179-8f0b-807be2926609",
+            "colId": "68cb6123-695f-4a44-a3cf-02e5075eb166",
+            "containerId": "529c7c07-17d8-49ee-8f6c-ac1d0ee20dc4",
+            "name": "login",
+            "url": "http://localhost:3000/lodgy/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-04-19T20:15:17.557Z",
+            "modified": "2024-04-19T20:18:59.091Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"user@kinal.edu.gt\",\n  \"password\":\"user123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9dff3785-a518-4eb6-9b58-a2c611334e54",
+            "colId": "68cb6123-695f-4a44-a3cf-02e5075eb166",
+            "containerId": "529c7c07-17d8-49ee-8f6c-ac1d0ee20dc4",
+            "name": "register",
+            "url": "http://localhost:3000/lodgy/v1/auth/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-04-19T20:15:30.320Z",
+            "modified": "2024-04-19T20:24:59.220Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"UserUnknow\",\n  \"email\":\"user@kinal.edu.gt\",\n  \"password\":\"user123\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

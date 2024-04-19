@@ -13,7 +13,6 @@ class Server {
         this.notes();
         this.app = express();
         this.port = process.env.PORT;
-        this.converPath = '/lodgy/v1/';
         this.authPath = '/lodgy/v1/auth'
 
         this.middlewares();

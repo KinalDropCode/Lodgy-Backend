@@ -4,15 +4,17 @@ import { generateJWT } from "../helpers/generate-JWT.js";
 
 export const register = async (req, res) =>{
     console.log('');
-    console.log('--- [NOTES] userPost.user')
+    console.log('--- [NOTES] register.auth')
     try {
-        const { name, mail, password} = req.body;
+        const { name, email, password} = req.body;
         const role = "USER_ROLE";
-        const salt = bcryptjs.genSaltSync();
-        password = bcryptjs.hashSync(password, salt);
 
-        const user = new User({name, mail, password, role});
-    
+        const user = new User({name, email, password, role});
+
+        const salt = bcryptjs.genSaltSync();
+        user.password = bcryptjs.hashSync(password, salt);
+
+        console.log(user);
         await user.save();
         return res.status(200).json({
             msg: "user has been added to database",
@@ -41,7 +43,7 @@ export const login = async (req, res) => {
         });
         }
 
-        if (!user.estado) {
+        if (!user.status) {
         return res.status(400).json({
             msg: "The user does not exist in database.",
         });
