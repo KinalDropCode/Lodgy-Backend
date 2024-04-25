@@ -75,18 +75,41 @@ export const showAllHotels = async(req, res) =>{
 }
 
 export const updateHotelName = async(req, res) =>{
-    const { id } = req.params;
-    const allowed = req.user;
-    if(allowed.role !== "ADMIN_ROLE"){
-        return res.status(400).json({
-            msg: "You cannot access this function"
-        });
-    }
-    const { name } = req.body;
-    await hotelModel.findByIdAndUpdate(id, { name:name});
-    const newName = await hotelModel.findById(id);
-    res.status(200).json({
-        msg: "Hotel changed name",
-        newName
+  const { name, address, phone, email } = req.body;
+  const { id } = req.params;
+  var idHotel;
+  const allowed = req.user;
+  var help;
+  if(allowed.role !== "ADMIN_ROLE"){
+    return res.status(403).json({
+        msg: 'You cannot acces to this function'
     });
+  }
+  const old = await hotelModel.findById(id);
+  if(!name){
+    name = old.name;
+  } else {
+    const oldTwo = await hotelModel.findOne({name});
+    if(oldTwo){
+        if(oldTwo.id !== id){
+            return res.status(400).json({ msg: "The hotel already exists" });
+        }
+    }
+  }
+  if(!address){
+    address = old.address;
+  }
+  if(!phone){
+    phone = old.phone;
+  }
+  if(!email){
+    email = old.email;
+  }
+  
+  await hotelModel.findByIdAndUpdate(id, {name: name, address: address, phone: phone, email: email});
+  const updatedHotel = await hotelModel.findById(id);
+  res.status(200).json({
+    msg: 'Hotel succesfully updated',
+    updatedHotel    
+  });
 }

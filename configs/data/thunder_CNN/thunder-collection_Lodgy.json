@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Lodgy",
     "collectionId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-    "dateExported": "2024-04-25T01:14:39.912Z",
+    "dateExported": "2024-04-25T01:57:31.523Z",
     "version": "1.2",
     "folders": [
         {
@@ -130,11 +130,11 @@
             "method": "POST",
             "sortNum": 60000,
             "created": "2024-04-25T00:42:00.012Z",
-            "modified": "2024-04-25T00:54:21.815Z",
+            "modified": "2024-04-25T01:56:17.026Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMDYwNTcsImV4cCI6MTcxNDAwOTY1N30.O6dOh2pfyEQnregwCaivtXnMwJ9LMvVjhwgQ-qMYn3Y"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMTAxNTYsImV4cCI6MTcxNDIxMTc1Nn0.oka2xGYeT6ifMrDWr7-inbQ6sYrSONHPDIoQkv9Pwe0"
                 }
             ],
             "body": {
@@ -152,11 +152,11 @@
             "method": "GET",
             "sortNum": 80000,
             "created": "2024-04-25T00:56:03.711Z",
-            "modified": "2024-04-25T01:02:20.297Z",
+            "modified": "2024-04-25T01:56:20.312Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMDYwNTcsImV4cCI6MTcxNDAwOTY1N30.O6dOh2pfyEQnregwCaivtXnMwJ9LMvVjhwgQ-qMYn3Y"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMTAxNTYsImV4cCI6MTcxNDIxMTc1Nn0.oka2xGYeT6ifMrDWr7-inbQ6sYrSONHPDIoQkv9Pwe0"
                 }
             ]
         },
@@ -165,20 +165,20 @@
             "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
             "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
             "name": "updateHotelName",
-            "url": "http://localhost:3000/lodgy/v1/hotel/name/6629a9786ce1a11aef0a57cb",
+            "url": "http://localhost:3000/lodgy/v1/hotel/name/6629a9bda266254b78000a4d",
             "method": "PUT",
             "sortNum": 100000,
             "created": "2024-04-25T01:06:36.297Z",
-            "modified": "2024-04-25T01:08:40.404Z",
+            "modified": "2024-04-25T01:57:19.866Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMDYwNTcsImV4cCI6MTcxNDAwOTY1N30.O6dOh2pfyEQnregwCaivtXnMwJ9LMvVjhwgQ-qMYn3Y"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMTAxNTYsImV4cCI6MTcxNDIxMTc1Nn0.oka2xGYeT6ifMrDWr7-inbQ6sYrSONHPDIoQkv9Pwe0"
                 }
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"kinalito\"\n}",
+                "raw": "{\n  \"name\":\"USACgod\",\n  \"address\":\"15 avenida\",\n  \"phone\":\"12345678\",\n  \"email\": \"papavictor@gmail.com\"\n}",
                 "form": []
             }
         },
@@ -200,5 +200,5 @@
             ]
         }
     ],
-    "ref": "mNQ6XmW7n8riASW6nfOYyFH4rf6kCQBUNGB_PNnS869_y8NAvsGe6UjbW6BWl1wfcXDPBHCI9LXFaxNBJUnocg"
+    "ref": "mNQ6XmW7n8riASW6nfOYyFH4rf6kCQBUNGB_PNnS869gN6P0F5Vy48qBJuQ0k7cNCCaIBfEZaJZSPNlCGozPRg"
 }

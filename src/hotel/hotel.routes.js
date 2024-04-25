@@ -55,6 +55,12 @@ router.delete(
       check("id").custom(hotelIdExist),
       check("name","Name cant be empty").not().isEmpty(),
       check("name").custom(hotelNameExist),
+      check("address", "The address can't be empty").not().isEmpty(),
+      check("address").custom(hotelAddressRegistered), 
+      check("phone", "The phone must be numeric").isNumeric(),
+      check("phone").custom(hotelPhoneRegistered),
+      check("email", "The email can't be empty").not().isEmpty(),
+      check("email").custom(hotelEmailExist),
       validateCampus,
     ], updateHotelName
  ) ;
