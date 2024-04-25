@@ -1,70 +1,70 @@
 {
     "clientName": "Thunder Client",
     "collectionName": "Lodgy",
-    "collectionId": "f9844f7c-cfef-4439-bfbb-c1a2c9934387",
-    "dateExported": "2024-04-21T04:11:35.006Z",
+    "collectionId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+    "dateExported": "2024-04-25T01:14:39.912Z",
     "version": "1.2",
     "folders": [
         {
-            "_id": "0b8e196e-36bb-4e72-9c0a-945c59611aca",
+            "_id": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
             "name": "auth",
             "containerId": "",
-            "created": "2024-04-20T02:34:38.729Z",
+            "created": "2024-04-25T00:42:00.006Z",
             "sortNum": 10000
         },
         {
-            "_id": "88fae6ef-7789-4616-a2b1-a3300f4a95a6",
+            "_id": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
             "name": "hotel",
             "containerId": "",
-            "created": "2024-04-21T04:08:37.773Z",
+            "created": "2024-04-25T00:42:00.007Z",
             "sortNum": 20000
         }
     ],
     "requests": [
         {
-            "_id": "3793efc4-136f-4263-9e5b-b560298bde5c",
-            "colId": "f9844f7c-cfef-4439-bfbb-c1a2c9934387",
-            "containerId": "0b8e196e-36bb-4e72-9c0a-945c59611aca",
+            "_id": "27544f5d-8cd0-432d-be20-24d9d4145e7d",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
             "name": "login",
             "url": "http://localhost:3000/lodgy/v1/auth/login",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-04-20T02:34:38.729Z",
-            "modified": "2024-04-20T02:35:04.808Z",
+            "created": "2024-04-25T00:42:00.007Z",
+            "modified": "2024-04-25T00:47:37.517Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\":\"angel18@kinal.edu.gt\",\n  \"password\":\"user123\"\n}",
+                "raw": "{\n  \"email\":\"angeljose@admin.org.gt\",\n  \"password\":\"user123\"\n}",
                 "form": []
             }
         },
         {
-            "_id": "3212435d-8528-4b10-971e-d15196f22314",
-            "colId": "f9844f7c-cfef-4439-bfbb-c1a2c9934387",
-            "containerId": "0b8e196e-36bb-4e72-9c0a-945c59611aca",
+            "_id": "e772f6db-6e3a-45cb-a6a4-bcedffdbfca8",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
             "name": "register",
             "url": "http://localhost:3000/lodgy/v1/auth/register",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2024-04-20T02:34:38.730Z",
-            "modified": "2024-04-21T03:18:18.779Z",
+            "created": "2024-04-25T00:42:00.008Z",
+            "modified": "2024-04-25T00:47:12.466Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"Angel\",\n  \"email\":\"addwada@admin.org.gt\",\n  \"password\":\"user123\"\n}",
+                "raw": "{\n  \"name\": \"Angel\",\n  \"email\":\"angeljose@admin.org.gt\",\n  \"password\":\"user123\"\n}",
                 "form": []
             }
         },
         {
-            "_id": "c1af1711-c83e-4134-bee7-f9f617848bd9",
-            "colId": "f9844f7c-cfef-4439-bfbb-c1a2c9934387",
-            "containerId": "0b8e196e-36bb-4e72-9c0a-945c59611aca",
+            "_id": "86d5dfa1-8124-41c8-8b9f-69c3c0d56ec0",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
             "name": "editName",
             "url": "http://localhost:3000/lodgy/v1/auth",
             "method": "PUT",
             "sortNum": 30000,
-            "created": "2024-04-20T02:34:38.731Z",
-            "modified": "2024-04-20T02:35:14.796Z",
+            "created": "2024-04-25T00:42:00.009Z",
+            "modified": "2024-04-25T00:42:00.009Z",
             "headers": [
                 {
                     "name": "x-token",
@@ -78,15 +78,15 @@
             }
         },
         {
-            "_id": "b16e6ca8-8f12-4f0a-b153-d918c38d3815",
-            "colId": "f9844f7c-cfef-4439-bfbb-c1a2c9934387",
-            "containerId": "0b8e196e-36bb-4e72-9c0a-945c59611aca",
+            "_id": "75b159e6-e4bb-4e8d-bb87-6b820c8ba1d7",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
             "name": "editPassword",
             "url": "http://localhost:3000/lodgy/v1/auth/password/",
             "method": "PUT",
             "sortNum": 40000,
-            "created": "2024-04-20T02:34:38.732Z",
-            "modified": "2024-04-20T02:35:22.898Z",
+            "created": "2024-04-25T00:42:00.010Z",
+            "modified": "2024-04-25T00:42:00.010Z",
             "headers": [
                 {
                     "name": "x-token",
@@ -100,15 +100,15 @@
             }
         },
         {
-            "_id": "b1df02af-9db9-4abd-b419-c9feff48afd9",
-            "colId": "f9844f7c-cfef-4439-bfbb-c1a2c9934387",
-            "containerId": "0b8e196e-36bb-4e72-9c0a-945c59611aca",
+            "_id": "62791237-dc0a-41bc-b311-14ea30b855aa",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
             "name": "deleteUser",
             "url": "http://localhost:3000/lodgy/v1/auth",
             "method": "DELETE",
             "sortNum": 50000,
-            "created": "2024-04-20T02:34:38.733Z",
-            "modified": "2024-04-20T02:35:29.420Z",
+            "created": "2024-04-25T00:42:00.011Z",
+            "modified": "2024-04-25T00:42:00.011Z",
             "headers": [
                 {
                     "name": "x-token",
@@ -122,17 +122,83 @@
             }
         },
         {
-            "_id": "f06d95dc-b24d-441d-a5e4-16188f643699",
-            "colId": "f9844f7c-cfef-4439-bfbb-c1a2c9934387",
-            "containerId": "88fae6ef-7789-4616-a2b1-a3300f4a95a6",
+            "_id": "d6aa3880-094e-4969-9eeb-e61ae605b9d0",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
             "name": "hotelRegister",
             "url": "http://localhost:3000/lodgy/v1/hotel/register",
             "method": "POST",
             "sortNum": 60000,
-            "created": "2024-04-21T04:08:47.116Z",
-            "modified": "2024-04-21T04:09:20.808Z",
-            "headers": []
+            "created": "2024-04-25T00:42:00.012Z",
+            "modified": "2024-04-25T00:54:21.815Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMDYwNTcsImV4cCI6MTcxNDAwOTY1N30.O6dOh2pfyEQnregwCaivtXnMwJ9LMvVjhwgQ-qMYn3Y"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Maicol\",\n  \"address\":\"12 Avenida\",\n  \"phone\": \"42213122\",\n  \"email\":\"josejose@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "bd2e1a15-38b4-4b8a-9189-fd98ef45fe25",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
+            "name": "getHotels",
+            "url": "http://localhost:3000/lodgy/v1/hotel",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-04-25T00:56:03.711Z",
+            "modified": "2024-04-25T01:02:20.297Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMDYwNTcsImV4cCI6MTcxNDAwOTY1N30.O6dOh2pfyEQnregwCaivtXnMwJ9LMvVjhwgQ-qMYn3Y"
+                }
+            ]
+        },
+        {
+            "_id": "455a47ce-82ad-482b-ad90-f34b627fc2cd",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
+            "name": "updateHotelName",
+            "url": "http://localhost:3000/lodgy/v1/hotel/name/6629a9786ce1a11aef0a57cb",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2024-04-25T01:06:36.297Z",
+            "modified": "2024-04-25T01:08:40.404Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMDYwNTcsImV4cCI6MTcxNDAwOTY1N30.O6dOh2pfyEQnregwCaivtXnMwJ9LMvVjhwgQ-qMYn3Y"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"kinalito\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "830c39bf-102c-4ffc-bd22-928129c1553f",
+            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
+            "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
+            "name": "deleteHotel",
+            "url": "http://localhost:3000/lodgy/v1/hotel/6629a9786ce1a11aef0a57cb",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2024-04-25T01:13:00.389Z",
+            "modified": "2024-04-25T01:14:02.094Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMDYwNTcsImV4cCI6MTcxNDAwOTY1N30.O6dOh2pfyEQnregwCaivtXnMwJ9LMvVjhwgQ-qMYn3Y"
+                }
+            ]
         }
     ],
-    "ref": "jklbIiQSLhniXQGmsg2da30jNipjbxve5Kl07MECiHSZvM3I_qk_0D9OMC3gpSx4vDydeak5bWb05omMOcBdIA"
+    "ref": "mNQ6XmW7n8riASW6nfOYyFH4rf6kCQBUNGB_PNnS869_y8NAvsGe6UjbW6BWl1wfcXDPBHCI9LXFaxNBJUnocg"
 }
