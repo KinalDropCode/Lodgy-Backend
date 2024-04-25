@@ -11,27 +11,27 @@ export const hotelIdExist = async (id = "") => {
 
 export const hotelEmailExist = async (email = "") => {
     const hotels = await hotelModel.findOne({email: email});
-    if(!hotels){
+    if(hotels){
         throw new Error(`The hotel email already exist`);
     }
 } 
 
 export const hotelNameExist = async (name = "") => {
     const hotels = await hotelModel.findOne({name: name});
-    if(!hotels){
+    if(hotels){
         throw new Error(`The hotel name already exist`);
     }
 } 
 export const hotelPhoneRegistered = async (phone = "") => {
     const hotels = await hotelModel.findOne({phone: phone});
-    if(!hotels){
+    if(hotels){
         throw new Error(`The hotel phone is already registered`);
     }
 } 
 
 export const hotelAddressRegistered = async (address = "") => {
     const hotels = await hotelModel.findOne({address: address});
-    if(!hotels){
+    if(hotels){
         throw new Error(`The hotel address is already registered`);
     }
 } 

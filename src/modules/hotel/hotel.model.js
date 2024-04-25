@@ -33,12 +33,14 @@ const HotelSchema = Schema({
       ref: "Room",
     },
   ],
-  reviews: [
+  reviews: {
+   type:[
     {
       type: Schema.Types.ObjectId,
       ref: "Review",
     },
-  ],
+  ]
+  },
 });
 
 export default model("Hotel", HotelSchema);

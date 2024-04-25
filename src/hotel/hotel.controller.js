@@ -8,29 +8,30 @@ import reviewModel from '../modules/review/review.model.js';
 
 //ver reviews y rooms
 export const createHotel = async(req, res) =>{
-const { name, address, phone, email, rooms, reviews } = req.body;
+const { name, address, phone, email, rooms} = req.body;
 const allowed = req.user;
 if(allowed.role !== "ADMIN_ROLE"){
     return res.status(403).json({
         msg: 'You cannot acces to this function'
     });
 }
+/*
 const roomsConst = await roomModel.findOne({type: rooms});
 const roomsId = roomsConst._id;
 const reviewsConst = await reviewModel.findOne({review: reviews});
 const reviewsId = reviewsConst._id;
+*/
 try{
     const newHotel = new hotelModel({
         name,
         address,
         phone,
         email,
-        rooms: roomsId,
-        reviews: reviewsId
+        //rooms: roomsId
     })
     await newHotel.save();
     res.status(200).json({
-        msg: "product successfully added",
+        msg: "hotel successfully added",
         newHotel,
       });
 }catch(e){
@@ -61,16 +62,16 @@ export const deletehotel = async(req, res) =>{
 
 
 export const showAllHotels = async(req, res) =>{
-    const allowed = req.user;
-    if(allowed.role !== "ADMIN_ROLE"){
-        return res.status(400).json({
-            msg: "You cannot access this function"
-        });
-    } 
-    const allHotels = await hotelModel.find({status: true});
-    res.status(200).json({
-        allHotels
-    })
+   const allowed = req.user;
+   if(allowed.role !== "ADMIN_ROLE"){
+    return res.status(403).json({
+        msg: 'You cannot acces to this function'
+    });
+   }
+   const hotelss = await hotelModel.find({status: true});
+   res.status(200).json({
+   hotelss
+});
 }
 
 export const updateHotelName = async(req, res) =>{
@@ -89,4 +90,3 @@ export const updateHotelName = async(req, res) =>{
         newName
     });
 }
-
