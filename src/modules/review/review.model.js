@@ -1,13 +1,11 @@
-import { Schema, model, now } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const ReviewSchema = Schema({
-  /*
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    required: [true, "User ID is required"],
   },
-  */
+
   date: {
     type: Date,
     default: Date.now,
@@ -24,7 +22,7 @@ const ReviewSchema = Schema({
   img: {
     type: String,
   },
-  estado: {
+  status: {
     type: Boolean,
     default: true,
   },
@@ -35,6 +33,5 @@ ReviewSchema.methods.toJSON = function () {
   resto.uid = _id;
   return resto;
 };
-
 
 export default model("Review", ReviewSchema);
