@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
 import authRoutes from '../src/auth/auth.routes.js'
-//import hotelRoutes from '../src/hotel/hotel.routes.js'
+import hotelRoutes from '../src/hotel/hotel.routes.js'
 // import routes from 'routes.js';
 
 class Server {
@@ -15,7 +15,7 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.authPath = '/lodgy/v1/auth'
-      //  this.hotelPath = '/lodgy/v1/hotel'
+        this.hotelPath = '/lodgy/v1/hotel'
 
         this.middlewares();
         this.conectDB();
@@ -28,7 +28,7 @@ class Server {
 
     routes() {
         this.app.use(this.authPath , authRoutes);
-  //      this.app.use(this.hotelPath , hotelRoutes);
+         this.app.use(this.hotelPath , hotelRoutes);
         // this.app.use(this.converPath, routes);
     }
 

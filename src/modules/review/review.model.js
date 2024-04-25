@@ -28,4 +28,11 @@ const ReviewSchema = Schema({
   },
 });
 
+ReviewSchema.methods.toJSON = function () {
+  const { __v, _id, ...resto } = this.toObject();
+  resto.uid = _id;
+  return resto;
+};
+
+
 export default model("Review", ReviewSchema);

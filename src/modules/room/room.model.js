@@ -12,16 +12,16 @@ const RoomSchema = Schema({
   desc: {
     type: String,
   },
-  availability: {
-    cuantity: NumberInt,
-    required: [true, "The availability is required"],
-  },
+  availability: [{
+    type: Number,  // Specify the type of each element in the array
+    required: [true, "The availability date is required"],
+  }],
   status: {
     type: Boolean,
     default: true,
   },
   capacity: {
-    type: NumberInt,
+    type: Number,
     required: [true, "The capacity is required"],
   },
   hotel: {
@@ -30,5 +30,11 @@ const RoomSchema = Schema({
     required: [true, "Hotel ID is required"],
   },
 });
+
+RoomSchema.methods.toJSON = function () {
+  const { __v, _id, ...resto } = this.toObject();
+  resto.uid = _id;
+  return resto;
+};
 
 export default model("Room", RoomSchema);

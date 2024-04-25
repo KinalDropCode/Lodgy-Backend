@@ -1,5 +1,5 @@
 import User from "../modules/user/user.model.js";
-/*
+
 import hotelModel from "../modules/hotel/hotel.model.js";
 
 export const hotelIdExist = async (id = "") => {
@@ -36,7 +36,7 @@ export const hotelAddressRegistered = async (address = "") => {
     }
 } 
 
-*/
+
 export const existentEmail = async (email = '') => {
     console.log('');
     console.log('--- [NOTES] existentEmail.db-validators');

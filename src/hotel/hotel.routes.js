@@ -1,4 +1,4 @@
-/*
+
 import { Router } from "express";
 import { check } from "express-validator";
 import { deletehotel, createHotel, updateHotelName } from "./hotel.controller.js";
@@ -51,4 +51,3 @@ router.delete(
 
 
 export default router;
-*/
