@@ -2,6 +2,7 @@ import User from "../modules/user/user.model.js";
 
 import hotelModel from "../modules/hotel/hotel.model.js";
 
+
 export const hotelIdExist = async (id = "") => {
     const hotels = await hotelModel.findById(id);
     if(!hotels){

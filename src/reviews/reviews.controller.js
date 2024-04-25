@@ -13,6 +13,10 @@ export const reviewPut = async (req, res) => {
         });
     }
     try {
+        await reviewModel.findByIdAndUpdate(id, { review });
+        res.status(200).json({
+          msg: "Updated review",
+        });
 
     } catch (e) { 
           res.status(500).json({
