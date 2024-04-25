@@ -1,11 +1,13 @@
 import { Schema, model, now } from "mongoose";
 
 const ReviewSchema = Schema({
+  /*
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: [true, "User ID is required"],
   },
+  */
   date: {
     type: Date,
     default: Date.now,
