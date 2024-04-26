@@ -43,4 +43,10 @@ const HotelSchema = Schema({
   },
 });
 
+
+HotelSchema.methods.addCommentById = async function (reviewId) { 
+  this.reviews.push(reviewId);
+  await this.save();
+}
+
 export default model("Hotel", HotelSchema);

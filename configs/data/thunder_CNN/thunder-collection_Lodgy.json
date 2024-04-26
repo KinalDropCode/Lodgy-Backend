@@ -1,204 +1,233 @@
 {
     "clientName": "Thunder Client",
-    "collectionName": "Lodgy",
-    "collectionId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-    "dateExported": "2024-04-25T01:57:31.523Z",
+    "collectionName": "lodgy",
+    "collectionId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+    "dateExported": "2024-04-26T16:05:00.636Z",
     "version": "1.2",
     "folders": [
         {
-            "_id": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
-            "name": "auth",
-            "containerId": "",
-            "created": "2024-04-25T00:42:00.006Z",
-            "sortNum": 10000
-        },
-        {
-            "_id": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
+            "_id": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
             "name": "hotel",
             "containerId": "",
-            "created": "2024-04-25T00:42:00.007Z",
+            "created": "2024-04-26T13:43:53.818Z",
             "sortNum": 20000
+        },
+        {
+            "_id": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
+            "name": "User",
+            "containerId": "",
+            "created": "2024-04-26T13:47:21.585Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "7ff9c1c9-2947-41c1-9887-2d50a2b47323",
+            "name": "review",
+            "containerId": "",
+            "created": "2024-04-26T14:55:15.347Z",
+            "sortNum": 40000
         }
     ],
     "requests": [
         {
-            "_id": "27544f5d-8cd0-432d-be20-24d9d4145e7d",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
+            "_id": "a86a8de5-001b-4934-8bd4-5f6b260784ba",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "getName",
+            "url": "http://localhost:3000/lodgy/v1/hotel/search/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-04-26T13:41:31.157Z",
+            "modified": "2024-04-26T14:09:03.839Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYjIwZjJjZWYzY2NjNGM5MzcyMDkiLCJlbWFpbCI6ImRhbmdlbEBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQxMzk2OTcsImV4cCI6MTcxNDM0MTI5N30.dA0SbA6_7NK59lBuNSpANEkm4J18KDIXzaC2NuqF3TI"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Hotel Felicidad\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "bb72735a-aa46-4f84-a9b4-6256d04d44dd",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "getAllHotels",
+            "url": "http://localhost:3000/lodgy/v1/hotel",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-04-26T13:44:20.514Z",
+            "modified": "2024-04-26T13:56:13.923Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYjIwZjJjZWYzY2NjNGM5MzcyMDkiLCJlbWFpbCI6ImRhbmdlbEBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQxMzk2OTcsImV4cCI6MTcxNDM0MTI5N30.dA0SbA6_7NK59lBuNSpANEkm4J18KDIXzaC2NuqF3TI"
+                }
+            ]
+        },
+        {
+            "_id": "2aded5c3-f300-4270-a292-b5479e990263",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "register",
+            "url": "http://localhost:3000/lodgy/v1/hotel/register",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-04-26T13:45:14.337Z",
+            "modified": "2024-04-26T15:32:31.189Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYzhkMzFkNzg2MTZiMzEwMTYyMTAiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDE0NTQ5OCwiZXhwIjoxNzE0MzQ3MDk4fQ.LL1wAgWVntHj6XcDUvFRO1v1UGBxOHoQkHgq44mF9lU"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Hotel la Alegria2\",\n  \"address\":\"16 calle\",\n  \"phone\":\"12345667\",\n  \"email\":\"hotell1a@gmail.com\"\n  \n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "31dce7a6-cf89-49e1-98dd-5fc497e8b25f",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "deleteHotel",
+            "url": "http://localhost:3000/lodgy/v1/hotel/662bb2e52cef3ccc4c937215",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-04-26T13:46:12.953Z",
+            "modified": "2024-04-26T14:13:38.738Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYjIwZjJjZWYzY2NjNGM5MzcyMDkiLCJlbWFpbCI6ImRhbmdlbEBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQxMzk2OTcsImV4cCI6MTcxNDM0MTI5N30.dA0SbA6_7NK59lBuNSpANEkm4J18KDIXzaC2NuqF3TI"
+                }
+            ]
+        },
+        {
+            "_id": "b9fd76c9-a3a3-4be6-8177-910209cf696b",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "putHotel",
+            "url": "http://localhost:3000/lodgy/v1/hotel/name/662bb2e52cef3ccc4c937215",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-04-26T13:46:48.681Z",
+            "modified": "2024-04-26T14:03:52.461Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYjIwZjJjZWYzY2NjNGM5MzcyMDkiLCJlbWFpbCI6ImRhbmdlbEBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQxMzk2OTcsImV4cCI6MTcxNDM0MTI5N30.dA0SbA6_7NK59lBuNSpANEkm4J18KDIXzaC2NuqF3TI"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n\"name\":\"Hotel Felicidad\",\n\"address\":\"12 calle\",\n\"phone\":\"87654321\",\n\"email\":\"hotelfelicidad@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3a91c3a3-7418-493c-a80a-8d7fefa0ccf6",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
             "name": "login",
             "url": "http://localhost:3000/lodgy/v1/auth/login",
             "method": "POST",
-            "sortNum": 10000,
-            "created": "2024-04-25T00:42:00.007Z",
-            "modified": "2024-04-25T00:47:37.517Z",
+            "sortNum": 80000,
+            "created": "2024-04-26T13:47:50.224Z",
+            "modified": "2024-04-26T15:31:38.099Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\":\"angeljose@admin.org.gt\",\n  \"password\":\"user123\"\n}",
+                "raw": "{\n  \"email\":\"dangel11@admin.org.gt\",\n  \"password\":\"123456\"\n}",
                 "form": []
             }
         },
         {
-            "_id": "e772f6db-6e3a-45cb-a6a4-bcedffdbfca8",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
+            "_id": "6dd68767-7180-4c05-8cee-33a7b4c0300b",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
             "name": "register",
             "url": "http://localhost:3000/lodgy/v1/auth/register",
             "method": "POST",
-            "sortNum": 20000,
-            "created": "2024-04-25T00:42:00.008Z",
-            "modified": "2024-04-25T00:47:12.466Z",
+            "sortNum": 90000,
+            "created": "2024-04-26T13:47:57.264Z",
+            "modified": "2024-04-26T15:31:31.370Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"Angel\",\n  \"email\":\"angeljose@admin.org.gt\",\n  \"password\":\"user123\"\n}",
+                "raw": "{\n\"email\":\"dangel11@admin.org.gt\",\n\"name\":\"angelon11\",\n\"password\": \"123456\"\n}",
                 "form": []
             }
         },
         {
-            "_id": "86d5dfa1-8124-41c8-8b9f-69c3c0d56ec0",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
-            "name": "editName",
-            "url": "http://localhost:3000/lodgy/v1/auth",
-            "method": "PUT",
-            "sortNum": 30000,
-            "created": "2024-04-25T00:42:00.009Z",
-            "modified": "2024-04-25T00:42:00.009Z",
-            "headers": [
-                {
-                    "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjIzMjlkMjNmZGQ0MjU2ZjlkZDQzZWIiLCJlbWFpbCI6ImFuZ2VsMThAa2luYWwuZWR1Lmd0IiwiaWF0IjoxNzEzNTgwNTA0LCJleHAiOjE3MTM1ODQxMDR9.vGHfgXaRv2MkWpQNKzWqf-5o2cJQkNO4uT7phvCOXSA"
-                }
-            ],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"name\":\"Tairon\"\n}",
-                "form": []
-            }
-        },
-        {
-            "_id": "75b159e6-e4bb-4e8d-bb87-6b820c8ba1d7",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
-            "name": "editPassword",
-            "url": "http://localhost:3000/lodgy/v1/auth/password/",
-            "method": "PUT",
-            "sortNum": 40000,
-            "created": "2024-04-25T00:42:00.010Z",
-            "modified": "2024-04-25T00:42:00.010Z",
-            "headers": [
-                {
-                    "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjIzMjlkMjNmZGQ0MjU2ZjlkZDQzZWIiLCJlbWFpbCI6ImFuZ2VsMThAa2luYWwuZWR1Lmd0IiwiaWF0IjoxNzEzNTgwNTA0LCJleHAiOjE3MTM1ODQxMDR9.vGHfgXaRv2MkWpQNKzWqf-5o2cJQkNO4uT7phvCOXSA"
-                }
-            ],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"oldPassword\":\"user123\",\n  \"newPassword\":\"user1234\"\n}",
-                "form": []
-            }
-        },
-        {
-            "_id": "62791237-dc0a-41bc-b311-14ea30b855aa",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "6d550d6e-7f4d-4515-a451-5553ea8b835d",
-            "name": "deleteUser",
-            "url": "http://localhost:3000/lodgy/v1/auth",
-            "method": "DELETE",
-            "sortNum": 50000,
-            "created": "2024-04-25T00:42:00.011Z",
-            "modified": "2024-04-25T00:42:00.011Z",
-            "headers": [
-                {
-                    "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjIzMjlkMjNmZGQ0MjU2ZjlkZDQzZWIiLCJlbWFpbCI6ImFuZ2VsMThAa2luYWwuZWR1Lmd0IiwiaWF0IjoxNzEzNTgwNTA0LCJleHAiOjE3MTM1ODQxMDR9.vGHfgXaRv2MkWpQNKzWqf-5o2cJQkNO4uT7phvCOXSA"
-                }
-            ],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"Password\": \"user1234\"\n}",
-                "form": []
-            }
-        },
-        {
-            "_id": "d6aa3880-094e-4969-9eeb-e61ae605b9d0",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
-            "name": "hotelRegister",
-            "url": "http://localhost:3000/lodgy/v1/hotel/register",
-            "method": "POST",
-            "sortNum": 60000,
-            "created": "2024-04-25T00:42:00.012Z",
-            "modified": "2024-04-25T01:56:17.026Z",
-            "headers": [
-                {
-                    "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMTAxNTYsImV4cCI6MTcxNDIxMTc1Nn0.oka2xGYeT6ifMrDWr7-inbQ6sYrSONHPDIoQkv9Pwe0"
-                }
-            ],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"name\":\"Maicol\",\n  \"address\":\"12 Avenida\",\n  \"phone\": \"42213122\",\n  \"email\":\"josejose@gmail.com\"\n}",
-                "form": []
-            }
-        },
-        {
-            "_id": "bd2e1a15-38b4-4b8a-9189-fd98ef45fe25",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
-            "name": "getHotels",
-            "url": "http://localhost:3000/lodgy/v1/hotel",
-            "method": "GET",
-            "sortNum": 80000,
-            "created": "2024-04-25T00:56:03.711Z",
-            "modified": "2024-04-25T01:56:20.312Z",
-            "headers": [
-                {
-                    "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMTAxNTYsImV4cCI6MTcxNDIxMTc1Nn0.oka2xGYeT6ifMrDWr7-inbQ6sYrSONHPDIoQkv9Pwe0"
-                }
-            ]
-        },
-        {
-            "_id": "455a47ce-82ad-482b-ad90-f34b627fc2cd",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
-            "name": "updateHotelName",
-            "url": "http://localhost:3000/lodgy/v1/hotel/name/6629a9bda266254b78000a4d",
+            "_id": "91571cce-7534-4d86-b868-87c0320ddee8",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
+            "name": "editUser",
+            "url": "http://localhost:3000/lodgy/v1/auth/userEdit",
             "method": "PUT",
             "sortNum": 100000,
-            "created": "2024-04-25T01:06:36.297Z",
-            "modified": "2024-04-25T01:57:19.866Z",
+            "created": "2024-04-26T14:38:37.549Z",
+            "modified": "2024-04-26T14:41:45.990Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMTAxNTYsImV4cCI6MTcxNDIxMTc1Nn0.oka2xGYeT6ifMrDWr7-inbQ6sYrSONHPDIoQkv9Pwe0"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYmQwMjIxMTI5YzIwM2ZhY2ZhZGEiLCJlbWFpbCI6ImRhbmdlbDFAYWRtaW4ub3JnLmd0IiwiaWF0IjoxNzE0MTQyNDcyLCJleHAiOjE3MTQzNDQwNzJ9.0CkxpGGM8b1n9gMLsK79rhQcIftzrItQwMUAWfDw9rc"
                 }
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"USACgod\",\n  \"address\":\"15 avenida\",\n  \"phone\":\"12345678\",\n  \"email\": \"papavictor@gmail.com\"\n}",
+                "raw": "\n  {\n\"name\":\"angelon2\",\n\"email\":\"dangel2@admin.org.gt\",\n\"password\": \"123456\"\n\n}",
                 "form": []
             }
         },
         {
-            "_id": "830c39bf-102c-4ffc-bd22-928129c1553f",
-            "colId": "6beb7a70-15ea-4e5c-a73d-67ce288e7868",
-            "containerId": "05776dd3-aab5-496d-b35d-e507ccbe19b1",
-            "name": "deleteHotel",
-            "url": "http://localhost:3000/lodgy/v1/hotel/6629a9786ce1a11aef0a57cb",
-            "method": "DELETE",
+            "_id": "4106e151-4df9-4bcf-b41c-8af3f4f7e67b",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "7ff9c1c9-2947-41c1-9887-2d50a2b47323",
+            "name": "reviewPost",
+            "url": "http://localhost:3000/lodgy/v1/review/post",
+            "method": "POST",
             "sortNum": 110000,
-            "created": "2024-04-25T01:13:00.389Z",
-            "modified": "2024-04-25T01:14:02.094Z",
+            "created": "2024-04-26T14:55:24.778Z",
+            "modified": "2024-04-26T15:00:21.909Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjI5YTgxMDc3NTJhOTMzNzI4ODU4YjEiLCJlbWFpbCI6ImFuZ2Vsam9zZUBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQwMDYwNTcsImV4cCI6MTcxNDAwOTY1N30.O6dOh2pfyEQnregwCaivtXnMwJ9LMvVjhwgQ-qMYn3Y"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYmQwMjIxMTI5YzIwM2ZhY2ZhZGEiLCJlbWFpbCI6ImRhbmdlbDFAYWRtaW4ub3JnLmd0IiwiaWF0IjoxNzE0MTQyNDcyLCJleHAiOjE3MTQzNDQwNzJ9.0CkxpGGM8b1n9gMLsK79rhQcIftzrItQwMUAWfDw9rc"
                 }
-            ]
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"review\":\"El hotel estaba muy shuco\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d7df7358-552c-454b-b767-8261070a0ea0",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
+            "name": "deleteUser",
+            "url": "http://localhost:3000/lodgy/v1/auth/",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2024-04-26T15:26:41.876Z",
+            "modified": "2024-04-26T15:30:00.517Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYmQwMjIxMTI5YzIwM2ZhY2ZhZGEiLCJlbWFpbCI6ImRhbmdlbDFAYWRtaW4ub3JnLmd0IiwiaWF0IjoxNzE0MTQyNDcyLCJleHAiOjE3MTQzNDQwNzJ9.0CkxpGGM8b1n9gMLsK79rhQcIftzrItQwMUAWfDw9rc"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\":\"123456\"\n}",
+                "form": []
+            }
         }
     ],
-    "ref": "mNQ6XmW7n8riASW6nfOYyFH4rf6kCQBUNGB_PNnS869gN6P0F5Vy48qBJuQ0k7cNCCaIBfEZaJZSPNlCGozPRg"
+    "ref": "5QmZcBu5pQYcnKtKkMNPFJ4wh1ik7bgxFoNfBG1XgU25R4HE7ibMEHicQdC1sl0kf5mraSu3K6p-obsVzM45Pw"
 }

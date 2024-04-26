@@ -1,6 +1,7 @@
 import User from "../modules/user/user.model.js";
 
 import hotelModel from "../modules/hotel/hotel.model.js";
+import userModel from "../modules/user/user.model.js";
 
 
 export const hotelIdExist = async (id = "") => {
@@ -23,6 +24,14 @@ export const hotelNameExist = async (name = "") => {
         throw new Error(`The hotel name already exist`);
     }
 } 
+
+export const hotelNameDoesntExist = async (name = "") => {
+  const hotels = await hotelModel.findOne({ name: name });
+  if (!hotels) {
+    throw new Error(`Hotel doesnt exist`);
+  }
+};
+
 export const hotelPhoneRegistered = async (phone = "") => {
     const hotels = await hotelModel.findOne({phone: phone});
     if(hotels){
@@ -37,6 +46,12 @@ export const hotelAddressRegistered = async (address = "") => {
     }
 } 
 
+export const userNameExist = async (name = "") => {
+  const user = await userModel.findOne({ name: name });
+  if (user) {
+    throw new Error(`The user name already exist`);
+  }
+}; 
 
 export const existentEmail = async (email = '') => {
     console.log('');

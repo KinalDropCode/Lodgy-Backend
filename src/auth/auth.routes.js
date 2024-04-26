@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { login, register, editName, editPassword, deleteUser } from "./auth.controller.js";
+import { login, register, deleteUser,editUser } from "./auth.controller.js";
 import { validateCampus } from "../middlewares/validate-campus.js";
-import { existentEmail } from "../middlewares/db-validators.js";
+import { existentEmail, userNameExist } from "../middlewares/db-validators.js";
 import { validateJWT } from "../middlewares/validate-jwt.js";
 
 const router = Router()
@@ -26,43 +26,35 @@ router.post('/register',
     ], register)
 
     router.put(
-        "/",
+        "/userEdit",
         [
           validateJWT,
           check("name", "The name can't be empty").not().isEmpty(),
-          validateCampus,
-        ],
-        editName
-      );
-
-    router.put(
-        "/password/",
-        [
-          validateJWT,
-          check("oldPassword", "Must be at least 6 characters").isLength({
-            min: 6,
-          }),
-          check("newPassword", "Must be at least 6 characters").isLength({
-            min: 6,
+          check("name").custom(userNameExist),
+          check("email", "The email cant be empty").isEmail(),
+          check("email").custom(existentEmail),
+          check("password").isLength({
+            min:6
           }),
           validateCampus,
         ],
-        editPassword
+        editUser
       );
 
+    
  
       /*
-
       router.delete(
         "/",
         [
           validateJWT,
-          check("Password", "Must be at least 6 characters").isLength({
+          check("password", "Must be at least 6 characters").isLength({
             min: 6,
           }),
           validateCampus,
         ],
         deleteUser
       );
-*/
+      */
+
 export default router;

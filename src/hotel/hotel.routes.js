@@ -1,9 +1,9 @@
 
 import { Router } from "express";
 import { check } from "express-validator";
-import { deletehotel, createHotel, updateHotelName, showAllHotels } from "./hotel.controller.js";
+import { deletehotel, createHotel, updateHotelName, showAllHotels, searchHotelByName } from "./hotel.controller.js";
 import { validateCampus } from "../middlewares/validate-campus.js";
-import { hotelEmailExist ,hotelPhoneRegistered ,hotelAddressRegistered ,existentEmail, hotelIdExist, hotelNameExist } from "../middlewares/db-validators.js";
+import { hotelEmailExist ,hotelPhoneRegistered ,hotelAddressRegistered ,existentEmail, hotelIdExist, hotelNameExist, hotelNameDoesntExist } from "../middlewares/db-validators.js";
 import { validateJWT } from "../middlewares/validate-jwt.js";
 
 const router = Router()
@@ -16,8 +16,17 @@ router.get(
   ], showAllHotels
 )
 
+router.get(
+  "/search/",
+  [
+    validateJWT,
+    check("name", "Name cant be empty").not().isEmpty(),
+    check("name").custom(hotelNameDoesntExist),
+    validateCampus
+  ], searchHotelByName
+);
 
-//ver reviews y rooms
+//watch reviews and rooms
 router.post(
   "/register",
   [

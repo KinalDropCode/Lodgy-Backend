@@ -1,31 +1,29 @@
 import hotelModel from "../modules/hotel/hotel.model.js";
 import reviewModel from "../modules/review/review.model.js";
 
-export const reviewPut = async (req, res) => { 
-    const { id } = req.params;
-    const { review } = req.body;
-    const allowed = req.user;
-    const reviewUser = await reviewModel.findById(id);
+export const reviewPut = async (req, res) => {
+  const { id } = req.params;
+  const { review } = req.body;
+  const allowed = req.user;
+  const reviewUser = await reviewModel.findById(id);
 
-    if (reviewUser.userId.toString() !== allowed.id) { 
-        return res.status(400).json({
-          msg: "You cant delete this review",
-        });
-    }
-    try {
-        await reviewModel.findByIdAndUpdate(id, { review });
-        res.status(200).json({
-          msg: "Updated review",
-        });
-
-    } catch (e) { 
-          res.status(500).json({
-            msg: "Error adding",
-            error: e.message,
-          });
-    }
-}
-
+  if (reviewUser.userId.toString() !== allowed.id) {
+    return res.status(400).json({
+      msg: "You cant delete this review",
+    });
+  }
+  try {
+    await reviewModel.findByIdAndUpdate(id, { review });
+    res.status(200).json({
+      msg: "Updated review",
+    });
+  } catch (e) {
+    res.status(500).json({
+      msg: "Error adding",
+      error: e.message,
+    });
+  }
+};
 
 export const reviewPost = async (req, res) => {
   try {
@@ -34,14 +32,13 @@ export const reviewPost = async (req, res) => {
     const allowed = req.user;
     const reviiws = new reviewModel({
       review: review,
-      date,
       hotel: allowed.id,
     });
     await reviiws.save();
 
     const reviewConstII = await hotelModel.findById(id);
 
-    await reviewConstII.addComemntById(reviiws._id);
+    await reviewConstII.addCommentById(reviiws._id);
 
     res.status(200).json({
       msg: "Succes",

@@ -1,7 +1,35 @@
-import User from "../modules/user/user.model.js";
 import bcryptjs from "bcryptjs";
 import { generateJWT } from "../helpers/generate-JWT.js";
+import User from "../modules/user/user.model.js";
 
+//FIX THIS METHOD
+export const editUser = async (req, res) => { 
+  const { name, email, password } = req.body;
+  const { id } = req.params;
+  const userOld = await User.findById(id);
+  if (!name) { 
+    name = userOld.name;
+  }
+  if (!email) { 
+    email = userOld.email
+  }
+  if (!password) { 
+    password = userOld.password
+  }
+  await User.findByIdAndUpdate(id, { name: name, email: email, password: password });
+  const newUser = await User.findById(id);
+  res.status(200).json({
+    msg: "User updated",
+    newUser,
+  })
+}
+
+
+
+
+
+
+/*
 export const editName = async (req, res) => {
     const name = req.body;
     const usuarioAutenticado = req.user;
@@ -34,7 +62,7 @@ export const editName = async (req, res) => {
   
     });
   };
-
+*/
   export const deleteUser = async (req, res) => {
     const { Password } = req.body;
     const usuarioAutenticado = req.user;
