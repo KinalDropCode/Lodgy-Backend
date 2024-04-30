@@ -1,5 +1,5 @@
 import User from "../modules/user/user.model.js";
-
+import eventModel from "../modules/event/event.model.js";
 import hotelModel from "../modules/hotel/hotel.model.js";
 import userModel from "../modules/user/user.model.js";
 

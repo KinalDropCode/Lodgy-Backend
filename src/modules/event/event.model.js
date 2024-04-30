@@ -17,10 +17,6 @@ const EventSchema = Schema({
     type: Date,
     required: [true, "Check out date is required"],
   },
-  price: {
-    type: Number,
-    required: [true, "The price is required"],
-  },
   img: {
     type: String,
   },
@@ -37,3 +33,5 @@ const EventSchema = Schema({
     required: [true, "Hotel ID is required"],
   },
 });
+
+export default mongoose.model("Event", EventSchema);

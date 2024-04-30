@@ -38,19 +38,14 @@ export const createHotel = async (req, res) => {
       msg: "You cannot acces to this function",
     });
   }
-  /*
-const roomsConst = await roomModel.findOne({type: rooms});
-const roomsId = roomsConst._id;
-const reviewsConst = await reviewModel.findOne({review: reviews});
-const reviewsId = reviewsConst._id;
-*/
+
   try {
     const newHotel = new hotelModel({
       name,
       address,
       phone,
       email,
-      //rooms: roomsId
+
     });
     await newHotel.save();
     res.status(200).json({
