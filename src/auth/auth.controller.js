@@ -84,7 +84,7 @@ export const deleteUser = async (req, res) => {
 };
 
 export const register = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, img } = req.body;
   var role;
   var usuario;
   try {
@@ -94,7 +94,7 @@ export const register = async (req, res) => {
       role = "USER_ROLE"; // Set default role to USER_ROLE
     }
 
-    usuario = new User({ name, email, password, role });
+    usuario = new User({ name, email, password, img, role });
 
     const salt = bcryptjs.genSaltSync();
     usuario.password = bcryptjs.hashSync(password, salt);
