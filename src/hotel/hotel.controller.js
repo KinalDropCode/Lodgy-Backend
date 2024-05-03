@@ -11,9 +11,7 @@ export const searchHotelByName = async (req, res) => {
     const hotel = await hotelModel.findOne({ name });
 
     if (!hotel) {
-      return res.status(404).json({
-        msg: "Hotel not found",
-      });
+      return res.status(404).send("Hotel not found");
     }
 
     res.status(200).json({
@@ -92,9 +90,7 @@ export const updateHotelName = async (req, res) => {
   const allowed = req.user;
   var help;
   if (allowed.role !== "ADMIN_ROLE") {
-    return res.status(403).json({
-      msg: "You cannot acces to this function",
-    });
+    return res.status(403).send("You cannot acces to this function");
   }
   const old = await hotelModel.findById(id);
   if (!name) {
