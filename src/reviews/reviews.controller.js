@@ -8,9 +8,7 @@ export const reviewPut = async (req, res) => {
   const reviewUser = await reviewModel.findById(id);
 
   if (reviewUser.userId.toString() !== allowed.id) {
-    return res.status(400).json({
-      msg: "You cant delete this review",
-    });
+    return res.status(400).send("You cant delete this review");
   }
   try {
     await reviewModel.findByIdAndUpdate(id, { review });
@@ -58,9 +56,7 @@ export const reviewDelete = async (req, res) => {
   const userReview = await reviewModel.findById(id);
 
   if (userReview.userId.toString() !== allowed.id) {
-    return res.status(400).json({
-      msg: "You can't delete this comment",
-    });
+    return res.status(400).send("You can't delete this comment");
   }
   try {
     await reviewModel.findByIdAndUpdate(id, {

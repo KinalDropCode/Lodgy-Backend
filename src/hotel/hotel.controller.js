@@ -6,9 +6,7 @@ export const searchHotelByName = async (req, res) => {
     const { name } = req.body;
 
     if (allowed.role !== "ADMIN_ROLE") {
-      return res.status(403).json({
-        msg: "You cannot access this function",
-      });
+      return res.status(403).send("You cannot access this function");
     }
     const hotel = await hotelModel.findOne({ name });
 
@@ -23,9 +21,7 @@ export const searchHotelByName = async (req, res) => {
     });
   } catch (error) {
     console.error("Error searching hotel:", error);
-    res.status(500).json({
-      msg: "Internal server error",
-    });
+    return res.status(403).send("Internal server error");
   }
 };
 
@@ -34,9 +30,7 @@ export const createHotel = async (req, res) => {
   const { name, address, phone, email, rooms } = req.body;
   const allowed = req.user;
   if (allowed.role !== "ADMIN_ROLE") {
-    return res.status(403).json({
-      msg: "You cannot acces to this function",
-    });
+    return res.status(403).send("You cannot acces to this function");
   }
   /*
 const roomsConst = await roomModel.findOne({type: rooms});
@@ -70,9 +64,7 @@ export const deletehotel = async (req, res) => {
   const allowed = req.user;
 
   if (allowed.role !== "ADMIN_ROLE") {
-    return res.status(403).json({
-      msg: "You cannot acces to this function",
-    });
+    return res.status(403).send("You cannot acces to this function");
   }
   await hotelModel.findByIdAndUpdate(id, { status: false });
   const deletedhotelModel = await hotelModel.findById(id);
@@ -85,9 +77,7 @@ export const deletehotel = async (req, res) => {
 export const showAllHotels = async (req, res) => {
   const allowed = req.user;
   if (allowed.role !== "ADMIN_ROLE") {
-    return res.status(403).json({
-      msg: "You cannot acces to this function",
-    });
+    return res.status(403).send("You cannot acces to this function");
   }
   const hotelss = await hotelModel.find({ status: true });
   res.status(200).json({
