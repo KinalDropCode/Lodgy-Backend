@@ -11,21 +11,26 @@ export const editUser = async (req, res) => {
     name = userOld.name;
   }
   if (!email) {
-    email = userOld.email
+    email = userOld.email;
   }
   if (!password) {
-    password = userOld.password
+    password = userOld.password;
   }
   if (!img) {
-    img = userOld.img
+    img = userOld.img;
   }
-  await User.findByIdAndUpdate(id, { name: name, email: email, img: img, password: password });
+  await User.findByIdAndUpdate(id, {
+    name: name,
+    email: email,
+    img: img,
+    password: password,
+  });
   const newUser = await User.findById(id);
   res.status(200).json({
     msg: "User updated",
     newUser,
-  })
-}
+  });
+};
 
 /*
 export const editName = async (req, res) => {
@@ -68,19 +73,15 @@ export const deleteUser = async (req, res) => {
   const acces = bcryptjs.compareSync(Password, p.password);
 
   if (!acces) {
-    return res.status(400).json({
-      msg: "Incorrect password"
-    })
+    return res.status(400).send("Incorrect password");
   }
 
   await User.findByIdAndUpdate(usuarioAutenticado.id, { status: false });
 
   res.status(200).json({
     msg: "User Deleted",
-
   });
 };
-
 
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -108,17 +109,16 @@ export const register = async (req, res) => {
   }
 };
 
-
 export const login = async (req, res) => {
-
   const { email, password } = req.body;
 
   try {
-
     const user = await User.findOne({ email: email });
 
     if (!user) {
-      return res.status(400).send("The email is not registered in the database.");
+      return res
+        .status(400)
+        .send("The email is not registered in the database.");
     }
 
     if (!user.status) {
@@ -130,7 +130,6 @@ export const login = async (req, res) => {
     if (!validPassword) {
       return res.status(400).send("Incorrect password.");
     } else {
-
       const token = await generateJWT(user.id, user.email);
 
       res.status(200).json({

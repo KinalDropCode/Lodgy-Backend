@@ -99,7 +99,7 @@ export const updateHotelName = async (req, res) => {
     const oldTwo = await hotelModel.findOne({ name });
     if (oldTwo) {
       if (oldTwo.id !== id) {
-        return res.status(400).json({ msg: "The hotel already exists" });
+        return res.status(400).send("The hotel already exists");
       }
     }
   }
