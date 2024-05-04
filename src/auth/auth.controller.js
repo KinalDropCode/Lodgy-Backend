@@ -5,27 +5,24 @@ import User from "../modules/user/user.model.js";
 //FIX THIS METHOD
 export const editUser = async (req, res) => {
   const { name, email, img, password } = req.body;
-  const { id } = req.params;
-  const userOld = await User.findById(id);
+  const { uid } = req.user
+  const userOld = await User.findById(uid);
   if (!name) {
     name = userOld.name;
   }
   if (!email) {
     email = userOld.email;
   }
-  if (!password) {
-    password = userOld.password;
-  }
+
   if (!img) {
     img = userOld.img;
   }
-  await User.findByIdAndUpdate(id, {
+  await User.findByIdAndUpdate(uid, {
     name: name,
     email: email,
-    img: img,
-    password: password,
+    img: img
   });
-  const newUser = await User.findById(id);
+  const newUser = await User.findById(uid);
   res.status(200).json({
     msg: "User updated",
     newUser,
@@ -135,6 +132,7 @@ export const login = async (req, res) => {
       res.status(200).json({
         msg: "Login ok",
         userDetails: {
+          id: user._id,
           name: user.name,
           email: user.email,
           img: user.img,
