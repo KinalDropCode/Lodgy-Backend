@@ -30,12 +30,7 @@ router.post('/register',
         [
           validateJWT,
           check("name", "The name can't be empty").not().isEmpty(),
-          check("name").custom(userNameExist),
           check("email", "The email cant be empty").isEmail(),
-          check("email").custom(existentEmail),
-          check("password").isLength({
-            min:6
-          }),
           validateCampus,
         ],
         editUser

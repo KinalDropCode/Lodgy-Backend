@@ -3,34 +3,31 @@ import { generateJWT } from "../helpers/generate-JWT.js";
 import User from "../modules/user/user.model.js";
 
 //FIX THIS METHOD
-export const editUser = async (req, res) => { 
+export const editUser = async (req, res) => {
   const { name, email, img, password } = req.body;
-  const { id } = req.params;
-  const userOld = await User.findById(id);
-  if (!name) { 
+  const { uid } = req.user
+  const userOld = await User.findById(uid);
+  if (!name) {
     name = userOld.name;
   }
-  if (!email) { 
-    email = userOld.email
+  if (!email) {
+    email = userOld.email;
   }
-  if (!password) { 
-    password = userOld.password
+
+  if (!img) {
+    img = userOld.img;
   }
-  if (!img){
-    img = userOld.img
-  }
-  await User.findByIdAndUpdate(id, { name: name, email: email, img: img,  password: password });
-  const newUser = await User.findById(id);
+  await User.findByIdAndUpdate(uid, {
+    name: name,
+    email: email,
+    img: img
+  });
+  const newUser = await User.findById(uid);
   res.status(200).json({
     msg: "User updated",
     newUser,
-  })
-}
-
-
-
-
-
+  });
+};
 
 /*
 export const editName = async (req, res) => {
@@ -66,90 +63,89 @@ export const editName = async (req, res) => {
     });
   };
 */
-  export const deleteUser = async (req, res) => {
-    const { Password } = req.body;
-    const usuarioAutenticado = req.user;
-    const p = await User.findById(usuarioAutenticado.id);
-    const acces = bcryptjs.compareSync(Password, p.password);
-  
-    if (!acces) {
-      return res.status(400).json({
-        msg: "Incorrect password"
-      })
+export const deleteUser = async (req, res) => {
+  const { Password } = req.body;
+  const usuarioAutenticado = req.user;
+  const p = await User.findById(usuarioAutenticado.id);
+  const acces = bcryptjs.compareSync(Password, p.password);
+
+  if (!acces) {
+    return res.status(400).send("Incorrect password");
+  }
+
+  await User.findByIdAndUpdate(usuarioAutenticado.id, { status: false });
+
+  res.status(200).json({
+    msg: "User Deleted",
+  });
+};
+
+export const register = async (req, res) => {
+  const { name, email, password, img } = req.body;
+  var role;
+  var usuario;
+  try {
+    if (email.includes("admin.org.gt")) {
+      role = "ADMIN_ROLE";
+    } else {
+      role = "USER_ROLE"; // Set default role to USER_ROLE
     }
-  
-    await User.findByIdAndUpdate(usuarioAutenticado.id, { status: false });
-  
+
+    usuario = new User({ name, email, password, img, role });
+
+    const salt = bcryptjs.genSaltSync();
+    usuario.password = bcryptjs.hashSync(password, salt);
+
+    await usuario.save();
+
     res.status(200).json({
-      msg: "User Deleted",
-  
+      usuario,
     });
-  };
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-
-  export const register = async (req, res) => {
-    const { name, email, password } = req.body;
-    var role;
-    var usuario;
-    try {
-      if (email.includes("admin.org.gt")) {
-        role = "ADMIN_ROLE";
-      } else {
-        role = "USER_ROLE"; // Set default role to USER_ROLE
-      }
-  
-      usuario = new User({ name, email, password, role });
-  
-      const salt = bcryptjs.genSaltSync();
-      usuario.password = bcryptjs.hashSync(password, salt);
-  
-      await usuario.save();
-  
-      res.status(200).json({
-        usuario,
-      });
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  };
-
-  
 export const login = async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        const user = await User.findOne({ email: email });
-        if (!user) {
-        return res.status(400).json({
-            msg: "The email is not registered in the database.",
-        });
-        }
+  const { email, password } = req.body;
 
-        if (!user.status) {
-        return res.status(400).json({
-            msg: "The user does not exist in database.",
-        });
-        }
+  try {
+    const user = await User.findOne({ email: email });
 
-        const validPassword = await bcryptjs.compareSync(password, user.password);
-        if (!validPassword) {
-            return res.status(400).json({
-                msg: "Incorrect password.",
-            });
-        } else {
-            const token = await generateJWT(user.id, user.email);
-
-            res.status(200).json({
-                msg: "Login ok",
-                userDetails: {
-                email: user.email,
-                token: token,
-                },
-            });
-        }
-    } catch (e) {
-        console.log(e);
-        res.status(500).json({
-        msg: "Please contact the administrator/support.",
-        });
+    if (!user) {
+      return res
+        .status(400)
+        .send("The email is not registered in the database.");
     }
+
+    if (!user.status) {
+      return res.status(400).send("The user does not exist in database.");
+    }
+
+    const validPassword = await bcryptjs.compareSync(password, user.password);
+
+    if (!validPassword) {
+      return res.status(400).send("Incorrect password.");
+    } else {
+      const token = await generateJWT(user.id, user.email);
+
+      res.status(200).json({
+        msg: "Login ok",
+        userDetails: {
+          id: user._id,
+          name: user.name,
+          email: user.email,
+          img: user.img,
+          role: user.role,
+          status: user.status,
+          token: token,
+        },
+      });
+    }
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      msg: "Please contact the administrator/support.",
+    });
+  }
 };
