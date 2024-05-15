@@ -1,5 +1,6 @@
 "use strict";
 
+import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 import helmet from "helmet";
@@ -25,7 +26,7 @@ class Server {
     this.eventPath = "/lodgy/v1/event";
     this.recursePath = "/lodgy/v1/recurse";
     this.roomPath = "/lodgy/v1/room";
-        
+
     this.middlewares();
     this.conectDB();
     this.routes();
@@ -39,13 +40,14 @@ class Server {
     this.app.use(this.authPath, authRoutes);
     this.app.use(this.hotelPath, hotelRoutes);
     this.app.use(this.reviewPath, reviewRoutes);
-    this.app.use(this.eventPath, eventRoutes);  
-    this.app.use(this.recursePath, recurseRoutes);   
-    this.app.use(this.roomPath, roomRoutes); 
+    this.app.use(this.eventPath, eventRoutes);
+    this.app.use(this.recursePath, recurseRoutes);
+    this.app.use(this.roomPath, roomRoutes);
     // this.app.use(this.converPath, routes);
   }
   middlewares() {
     this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(bodyParser.json({ limit: '10mb' }));
     this.app.use(cors());
     this.app.use(helmet());
     this.app.use(morgan("dev"));
