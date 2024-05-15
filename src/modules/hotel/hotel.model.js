@@ -41,8 +41,20 @@ const HotelSchema = Schema({
     },
   ]
   },
+  events:{
+    type:[
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Event"
+      }
+    ]
+  }
 });
 
+HotelSchema.methods.addEventById = async function(eventId){
+  this.events.push(eventId);
+  await this.save();
+}
 
 HotelSchema.methods.addCommentById = async function (reviewId) { 
   this.reviews.push(reviewId);

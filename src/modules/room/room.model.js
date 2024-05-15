@@ -27,9 +27,14 @@ const RoomSchema = Schema({
   hotel: {
     type: Schema.Types.ObjectId,
     ref: "Hotel",
-    required: [true, "Hotel ID is required"],
+    
   },
 });
+
+RoomSchema.methods.addRecurseById = async function(recurseId){
+  this.recurses.push(recurseId);
+  await this.save();
+}
 
 RoomSchema.methods.toJSON = function () {
   const { __v, _id, ...resto } = this.toObject();

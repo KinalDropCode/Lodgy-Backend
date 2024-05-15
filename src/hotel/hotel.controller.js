@@ -2,12 +2,13 @@ import hotelModel from "../modules/hotel/hotel.model.js";
 
 export const searchHotelByName = async (req, res) => {
   try {
-    const allowed = req.user;
     const { name } = req.body;
-
+    const allowed = req.user;
+/*
     if (allowed.role !== "ADMIN_ROLE") {
       return res.status(403).send("You cannot access this function");
     }
+  */
     const hotel = await hotelModel.findOne({ name });
 
     if (!hotel) {
@@ -27,15 +28,12 @@ export const searchHotelByName = async (req, res) => {
 export const createHotel = async (req, res) => {
   const { name, address, phone, email, rooms } = req.body;
   const allowed = req.user;
-  if (allowed.role !== "ADMIN_ROLE") {
-    return res.status(403).send("You cannot acces to this function");
+  /*if(allowed.role === "USER_ROLE"){
+      return res.status(400).json({
+          msg: "you cannot access this function",
+        });
   }
-  /*
-const roomsConst = await roomModel.findOne({type: rooms});
-const roomsId = roomsConst._id;
-const reviewsConst = await reviewModel.findOne({review: reviews});
-const reviewsId = reviewsConst._id;
-*/
+  */
   try {
     const newHotel = new hotelModel({
       name,
@@ -60,10 +58,11 @@ const reviewsId = reviewsConst._id;
 export const deletehotel = async (req, res) => {
   const { id } = req.params;
   const allowed = req.user;
-
+/*
   if (allowed.role !== "ADMIN_ROLE") {
     return res.status(403).send("You cannot acces to this function");
   }
+  */
   await hotelModel.findByIdAndUpdate(id, { status: false });
   const deletedhotelModel = await hotelModel.findById(id);
   res.status(200).json({
@@ -75,8 +74,11 @@ export const deletehotel = async (req, res) => {
 export const showAllHotels = async (req, res) => {
   const allowed = req.user;
   if (allowed.role !== "ADMIN_ROLE") {
-    return res.status(403).send("You cannot acces to this function");
+    return res.status(403).json({
+      msg: "You cannot acces to this function",
+    });
   }
+ 
   const hotelss = await hotelModel.find({ status: true });
   res.status(200).json({
     hotelss,

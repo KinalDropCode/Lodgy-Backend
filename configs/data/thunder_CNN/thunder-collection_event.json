@@ -1,0 +1,105 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "event",
+    "collectionId": "b09f0366-2056-4695-b5e4-ac83446ba3f5",
+    "dateExported": "2024-05-05T19:09:38.974Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "65180521-fbed-4b16-aa00-31fb251b5701",
+            "colId": "b09f0366-2056-4695-b5e4-ac83446ba3f5",
+            "containerId": "",
+            "name": "eventPost",
+            "url": "http://localhost:3000/lodgy/v1/event/6637c31444cf6b65c1f614d9",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-05T14:46:47.267Z",
+            "modified": "2024-05-05T17:35:01.773Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"name\": \"Examen de admision\",\r\n  \"date\": \"2024-05-10T00:00:00.000Z\",\r\n  \"checkIn\": \"2024-05-10T14:00:00.000Z\",\r\n  \"checkOut\": \"2024-05-15T12:00:00.000Z\",\r\n  \"price\": 400.00\r\n}\r\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "1629cbd8-c20e-435d-9b44-ea15df315aa6",
+            "colId": "b09f0366-2056-4695-b5e4-ac83446ba3f5",
+            "containerId": "",
+            "name": "eventDelete",
+            "url": "http://localhost:3000/lodgy/v1/event/6637b74ef7fbcf0074e7ecfa",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2024-05-05T15:27:13.274Z",
+            "modified": "2024-05-05T17:09:39.534Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                }
+            ]
+        },
+        {
+            "_id": "e99a1894-5ceb-4b6c-958e-fb1e409772cc",
+            "colId": "b09f0366-2056-4695-b5e4-ac83446ba3f5",
+            "containerId": "",
+            "name": "searchEventId",
+            "url": "http://localhost:3000/lodgy/v1/event/6637c34544cf6b65c1f614dd",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-05-05T16:42:26.249Z",
+            "modified": "2024-05-05T17:35:15.015Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                }
+            ]
+        },
+        {
+            "_id": "b4f14062-43d0-4f75-8233-5551bcf13a5a",
+            "colId": "b09f0366-2056-4695-b5e4-ac83446ba3f5",
+            "containerId": "",
+            "name": "eventPut",
+            "url": "http://localhost:3000/lodgy/v1/event/6637c34544cf6b65c1f614dd",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-05-05T17:42:39.521Z",
+            "modified": "2024-05-05T17:43:43.938Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"name\": \"Examen final\",\r\n  \"date\": \"2024-05-10T00:00:00.000Z\",\r\n  \"checkIn\": \"2024-05-10T14:00:00.000Z\",\r\n  \"checkOut\": \"2024-05-15T12:00:00.000Z\",\r\n  \"price\": 1000.00\r\n}\r\n",
+                "form": []
+            }
+        }
+    ],
+    "ref": "Y-U3ni8vMX9pQf9VFzQM9AFrEX-CPv3cA-kn3QYWIrIiPj4qlaZ3jZkax9fYXuiZdBWzRY4C3XHAk_puxxWEIw"
+}

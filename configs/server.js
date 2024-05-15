@@ -7,6 +7,9 @@ import morgan from "morgan";
 import authRoutes from "../src/auth/auth.routes.js";
 import hotelRoutes from "../src/hotel/hotel.routes.js";
 import reviewRoutes from "../src/reviews/reviews.routes.js"
+import eventRoutes from "../src/event/event.routes.js"
+import recurseRoutes from "../src/recurse/recurse.routes.js"
+import roomRoutes from "../src/room/room.routes.js"
 import { dbConnection } from "./mongo.js";
 
 // import routes from 'routes.js';
@@ -19,6 +22,9 @@ class Server {
     this.authPath = "/lodgy/v1/auth";
     this.hotelPath = "/lodgy/v1/hotel";
     this.reviewPath = "/lodgy/v1/review";
+    this.eventPath = "/lodgy/v1/event";
+    this.recursePath = "/lodgy/v1/recurse";
+    this.roomPath = "/lodgy/v1/room";
         
     this.middlewares();
     this.conectDB();
@@ -33,10 +39,11 @@ class Server {
     this.app.use(this.authPath, authRoutes);
     this.app.use(this.hotelPath, hotelRoutes);
     this.app.use(this.reviewPath, reviewRoutes);
-        
+    this.app.use(this.eventPath, eventRoutes);  
+    this.app.use(this.recursePath, recurseRoutes);   
+    this.app.use(this.roomPath, roomRoutes); 
     // this.app.use(this.converPath, routes);
   }
-
   middlewares() {
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(cors());

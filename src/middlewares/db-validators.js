@@ -2,6 +2,23 @@ import User from "../modules/user/user.model.js";
 
 import hotelModel from "../modules/hotel/hotel.model.js";
 import userModel from "../modules/user/user.model.js";
+import eventModel from "../modules/event/event.model.js";
+import recurseModel from "../modules/recurse/recurse.model.js";
+
+
+export const recurseIdDoesntExist = async(id ="")=>{
+  const recurses = await recurseModel.findById(id);
+  if(!recurses){
+    throw new Error(`The recurse doesnt exist`);
+  }
+}
+
+export const eventIdDoesntExist = async(id = "")=>{
+  const events = await eventModel.findById(id);
+  if(!events){
+    throw new Error(`The hotel does not exist`);
+  }
+}
 
 export const hotelIdExist = async (id = "") => {
   const hotels = await hotelModel.findById(id);

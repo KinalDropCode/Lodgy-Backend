@@ -1,0 +1,105 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "putRecurse",
+    "collectionId": "032899ab-a61e-4c78-9330-51cd3cc1b712",
+    "dateExported": "2024-05-05T19:09:31.517Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "295cd108-3969-4f55-a7e5-1d73f6e4ed47",
+            "colId": "032899ab-a61e-4c78-9330-51cd3cc1b712",
+            "containerId": "",
+            "name": "recursePost",
+            "url": "http://localhost:3000/lodgy/v1/recurse/6637c34544cf6b65c1f614dd",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-05T18:26:33.343Z",
+            "modified": "2024-05-05T18:58:36.295Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Comida\",\n  \"description\":\"Un plato de caviar\",\n  \"price\":\"200\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "9e96f1a3-4504-41bc-bf9e-94d37dd8122d",
+            "colId": "032899ab-a61e-4c78-9330-51cd3cc1b712",
+            "containerId": "",
+            "name": "recurseDelete",
+            "url": "http://localhost:3000/lodgy/v1/recurse/6637d04ccdeeb0edc5596978",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2024-05-05T18:53:36.104Z",
+            "modified": "2024-05-05T18:54:27.523Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                }
+            ]
+        },
+        {
+            "_id": "6e2d9aed-60ac-460b-ba93-f6bfdb4823ba",
+            "colId": "032899ab-a61e-4c78-9330-51cd3cc1b712",
+            "containerId": "",
+            "name": "searchRecurseById",
+            "url": "http://localhost:3000/lodgy/v1/recurse/6637d6dc6c818bd3ce9c82d1",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-05-05T18:56:45.749Z",
+            "modified": "2024-05-05T18:58:49.483Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                }
+            ]
+        },
+        {
+            "_id": "f8ea23f5-04d8-4f40-b0b8-93ad0ef74b21",
+            "colId": "032899ab-a61e-4c78-9330-51cd3cc1b712",
+            "containerId": "",
+            "name": "putRecurse",
+            "url": "http://localhost:3000/lodgy/v1/recurse/6637d6dc6c818bd3ce9c82d1",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-05-05T18:59:38.784Z",
+            "modified": "2024-05-05T19:00:50.994Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjMxNzYyNjU1MDk1MzJlM2QxMDg1MTEiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDg4Njc0MSwiZXhwIjoxNzE1MDg4MzQxfQ.xSkjRLIGNTRV5nYhR0I-tLfEUQQOBM8FMkpFgkQK30Y"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Pizza\",\n  \"description\":\"Pizza de un metro\",\n  \"price\":\"5\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "1urnWm95MbYr6TJABeWzEyNWcIs32So_P4Qb8t7L_1C_lgYhGtj9eXlFIabU5KsWWkcvlcwWgUVPIBBKL14XFQ"
+}
