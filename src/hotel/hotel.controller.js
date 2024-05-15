@@ -4,11 +4,12 @@ export const searchHotelByName = async (req, res) => {
   try {
     const { name } = req.body;
     const allowed = req.user;
-/*
-    if (allowed.role !== "ADMIN_ROLE") {
-      return res.status(403).send("You cannot access this function");
-    }
-  */
+    /*
+      if (allowed.role !== "ADMIN_ROLE") {
+        return res.status(403).send("You cannot access this function");
+      }
+    */
+
     const hotel = await hotelModel.findOne({ name });
 
     if (!hotel) {
@@ -58,11 +59,11 @@ export const createHotel = async (req, res) => {
 export const deletehotel = async (req, res) => {
   const { id } = req.params;
   const allowed = req.user;
-/*
-  if (allowed.role !== "ADMIN_ROLE") {
-    return res.status(403).send("You cannot acces to this function");
-  }
-  */
+  /*
+    if (allowed.role !== "ADMIN_ROLE") {
+      return res.status(403).send("You cannot acces to this function");
+    }
+    */
   await hotelModel.findByIdAndUpdate(id, { status: false });
   const deletedhotelModel = await hotelModel.findById(id);
   res.status(200).json({
@@ -78,7 +79,7 @@ export const showAllHotels = async (req, res) => {
       msg: "You cannot acces to this function",
     });
   }
- 
+
   const hotelss = await hotelModel.find({ status: true });
   res.status(200).json({
     hotelss,
