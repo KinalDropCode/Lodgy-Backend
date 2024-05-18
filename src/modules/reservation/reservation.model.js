@@ -36,3 +36,15 @@ const ReservationSchema = Schema({
     default: true,
   },
 });
+ReservationSchema.methods.addRecurseById = async function(recurseId){
+  this.recurses.push(recurseId);
+  await this.save();
+}
+
+ReservationSchema.methods.toJSON = function () {
+  const { __v, _id, ...resto } = this.toObject();
+  resto.uid = _id;
+  return resto;
+};
+
+export default model("Reservation", ReservationSchema)
