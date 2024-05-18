@@ -1,6 +1,6 @@
-import roomModel from "../modules/room/room.model";
-import hotelModel from "../modules/hotel/hotel.model";
-import reservationModel from "../modules/reservation/reservation.model";
+import roomModel from "../modules/room/room.model.js";
+import hotelModel from "../modules/hotel/hotel.model.js";
+import reservationModel from "../modules/reservation/reservation.model.js";
 
 
 export const reservationPost = async (req, res) => {

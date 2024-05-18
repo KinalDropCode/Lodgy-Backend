@@ -73,12 +73,12 @@ export const deletehotel = async (req, res) => {
 };
 
 export const showAllHotels = async (req, res) => {
-  const allowed = req.user;
+  /*const allowed = req.user;
   if (allowed.role !== "ADMIN_ROLE") {
     return res.status(403).json({
       msg: "You cannot acces to this function",
     });
-  }
+  }*/
 
   const hotelss = await hotelModel.find({ status: true });
   res.status(200).json({
