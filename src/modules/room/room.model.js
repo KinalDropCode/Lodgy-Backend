@@ -27,7 +27,6 @@ const RoomSchema = Schema({
   hotel: {
     type: Schema.Types.ObjectId,
     ref: "Hotel",
-    
   },
 });
 

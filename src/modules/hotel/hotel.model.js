@@ -23,40 +23,38 @@ const HotelSchema = Schema({
   desc: {
     type: String,
   },
-  status: {
-    type: Boolean,
-    default: true,
+  administrator: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
-  rooms: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Room",
-    },
-  ],
   reviews: {
-   type:[
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Review",
-    },
-  ]
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ]
   },
-  events:{
-    type:[
+  events: {
+    type: [
       {
         type: Schema.Types.ObjectId,
         ref: "Event"
       }
     ]
-  }
+  },
+  status: {
+    type: Boolean,
+    default: true,
+  },
 });
 
-HotelSchema.methods.addEventById = async function(eventId){
+HotelSchema.methods.addEventById = async function (eventId) {
   this.events.push(eventId);
   await this.save();
 }
 
-HotelSchema.methods.addCommentById = async function (reviewId) { 
+HotelSchema.methods.addCommentById = async function (reviewId) {
   this.reviews.push(reviewId);
   await this.save();
 }

@@ -1,77 +1,44 @@
 
 import { Router } from "express";
 import { check } from "express-validator";
-import { deletehotel, createHotel, updateHotelName, showAllHotels, searchHotelByName } from "./hotel.controller.js";
+import { createHotel, getHotels, getHotelsByAdministrator, deleteHotel, searchHotelsByName } from "./hotel.controller.js";
 import { validateCampus } from "../middlewares/validate-campus.js";
-import { hotelEmailExist ,hotelPhoneRegistered ,hotelAddressRegistered ,existentEmail, hotelIdExist, hotelNameExist, hotelNameDoesntExist } from "../middlewares/db-validators.js";
 import { validateJWT } from "../middlewares/validate-jwt.js";
 
 const router = Router()
 
-router.get(
-  "/",
-  [
-    validateCampus,
-  ], showAllHotels
-)
+router.get('/', getHotels)
 
 router.get(
-  "/search/",
+  "/:idUser",
   [
-    validateJWT,
-    check("name", "Name cant be empty").not().isEmpty(),
-    check("name").custom(hotelNameDoesntExist),
+    check("idUser", "The id is not a valid MongoDB format").isMongoId(),
     validateCampus
-  ], searchHotelByName
-);
+  ], getHotelsByAdministrator);
 
-//watch reviews and rooms
 router.post(
-  "/register",
+  '/search/',
   [
-    validateJWT,
     check("name", "The name can't be empty").not().isEmpty(),
-    check("name").custom(hotelNameExist),
-    check("address", "The address can't be empty").not().isEmpty(),
-    check("address").custom(hotelAddressRegistered), 
-    check("phone", "The phone must be numeric").isNumeric(),
-    check("phone").custom(hotelPhoneRegistered),
-    check("email", "The email can't be empty").not().isEmpty(),
-    check("email").custom(hotelEmailExist),
-  //  check("rooms","Rooms cant be empty").isInt(),
     validateCampus
-  ], 
-  createHotel
-);
+  ], searchHotelsByName);
+
+router.post(
+  "/:idUser",
+  [
+    check("name", "The name can't be empty").not().isEmpty(),
+    check("address", "The address can't be empty").not().isEmpty(),
+    check("phone", "The phone must be numeric").isNumeric(),
+    check("email", "The email can't be empty").not().isEmpty(),
+    validateCampus
+  ], createHotel);
 
 router.delete(
-    "/:id",
-    [
-      validateJWT,
-      check("id","its not a valid format").isMongoId(),
-      check("id").custom(hotelIdExist),
-      validateCampus,
-    ],
-    deletehotel
-  );
-
- router.put(
-    "/name/:id",
-    [
-      validateJWT,
-      check("id", "Its not a valid format").isMongoId(),
-      check("id").custom(hotelIdExist),
-      check("name","Name cant be empty").not().isEmpty(),
-      check("name").custom(hotelNameExist),
-      check("address", "The address can't be empty").not().isEmpty(),
-      check("address").custom(hotelAddressRegistered), 
-      check("phone", "The phone must be numeric").isNumeric(),
-      check("phone").custom(hotelPhoneRegistered),
-      check("email", "The email can't be empty").not().isEmpty(),
-      check("email").custom(hotelEmailExist),
-      validateCampus,
-    ], updateHotelName
- ) ;
+  "/:idHotel",
+  [
+    check("idHotel", "The id is not a valid MongoDB format").isMongoId(),
+    validateCampus
+  ], deleteHotel);
 
 
 
