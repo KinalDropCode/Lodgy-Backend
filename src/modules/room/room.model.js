@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const RoomSchema = Schema({
-  type: {
+  numberRoom: {
     type: String,
     required: [true, "The type is required"],
   },
@@ -16,21 +16,24 @@ const RoomSchema = Schema({
     type: Number,  // Specify the type of each element in the array
     required: [true, "The availability date is required"],
   }],
-  status: {
-    type: Boolean,
-    default: true,
-  },
   capacity: {
     type: Number,
     required: [true, "The capacity is required"],
   },
+  img: [{
+    type: String,
+  }],
   hotel: {
     type: Schema.Types.ObjectId,
     ref: "Hotel",
   },
+  status: {
+    type: Boolean,
+    default: true,
+  },
 });
 
-RoomSchema.methods.addRecurseById = async function(recurseId){
+RoomSchema.methods.addRecurseById = async function (recurseId) {
   this.recurses.push(recurseId);
   await this.save();
 }

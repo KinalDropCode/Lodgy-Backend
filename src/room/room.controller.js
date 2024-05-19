@@ -1,71 +1,75 @@
 import roomModel from "../modules/room/room.model.js"
 import hotelModel from "../modules/hotel/hotel.model.js"
 
+export const createRoom = async (req, res) => {
+    const { idUser } = req.params;
+    try {
+        const { numberRoom, price, desc, availability, capacity, img, hotel } = req.body;
+        const room = await roomModel.create({ numberRoom, price, desc, availability, capacity, img, hotel, administrator: idUser })
+        res.status(201).json(room);
+    } catch (error) {
+        res.status(500).send(`Error al crear el hotel ${error}`);
+    }
+};
 
-export const roomPost = async(req, res) =>{
-    try{
-        const { id } = req.params;
-        const{ type, price, desc, availability, status, capacity} = req.body;
-        const allowed = req.user;
-        const room = new roomModel({  
-            type, price, desc, availability, status, capacity, 
-            hotel: allowed.id,
-        });
-        await room.save();
-
-        const hotel = await hotelModel.findById(req.body.hotel);
-        await hotel.addEventById(room._id);
-
-        res.status(200).json({
-            msg: "room comment",
-            room,
-        });
-
-    }catch (error) {
-        res
-            .status(500)
-            .json({ msg: "error publishing", error: error.message });
+export const getRooms = async (req, res) => {
+    try {
+        const room = await roomModel.find({ status: true });
+        res.status(200).json(room);
+    } catch (error) {
+        res.status(500).send(`Error al listar los hoteles ${error}`);
     }
 }
 
-export const deleteRoomId = async(req, res) => {
-    const { id } = req.params; 
-
-    await roomModel.findByIdAndUpdate(id, {status: false});
-    const roomCanceled = await roomModel.findById(id);
-    res.status(200).json({
-        msg: "room successfully eliminated",
-        roomCanceled,
-    });
-}
-export const getRoomById = async (req, res) =>{
-    try{
-        const { id } = req.params;
-        const room = await roomModel.findById(id);
-        if(!room){
-            return res.status(404).json({ msg: "room not found" });    
-        }   
-        res.status(200).json({ room });
-
-    }catch (error) {
-        res.status(500).json({ msg: "error getting room", error: error.message });
+export const getRoomsByAdministrator = async (req, res) => {
+    const { idUser } = req.params;
+    try {
+        const room = await roomModel.find({ status: true, administrator: idUser });
+        res.status(200).json(room);
+    } catch (error) {
+        res.status(500).send(`Error al listar los hoteles ${error}`);
     }
 }
 
-export const roomUpdate = async(req, res) =>{
-    const { id } = req.params;
-    const{ type, price, desc, availability, status, capacity, hotel} = req.body;
-   
-    try{
-        await roomModel.findByIdAndUpdate(id, { type, price, desc, availability, status, capacity, hotel })
-
-        res.status(200).json({
-            msg: "room Update",
-        })
-
-    }catch (error) {
-        res
-            .status(500)
-            .json({ msg: "error publishing", error: error.message });
+export const deleteRoom = async (req, res) => {
+    const { idRoom } = req.params;
+    try {
+        const room = await roomModel.findByIdAndUpdate(idRoom, { status: false }, { new: true });
+        res.status(200).json(room);
+    } catch (error) {
+        res.status(500).send(`Error al eliminar los hoteles ${error}`);
     }
 }
+
+export const editRoom = async (req, res) => {
+    const { idRoom } = req.params;
+    try {
+        const { numberRoom, price, desc, availability, capacity, img, hotel } = req.body;
+
+        const updateField = {};
+        if (numberRoom) updateField.numberRoom = numberRoom
+        if (price) updateField.price = price
+        if (desc) updateField.desc = desc
+        if (availability) updateField.availability = availability
+        if (capacity) updateField.capacity = capacity
+        if (img) updateField.img = img
+        if (hotel) updateField.hotel = hotel
+
+        const room = await roomModel.findByIdAndUpdate(idRoom, updateField, { new: true });
+
+        res.status(200).json(room);
+    } catch (error) {
+        res.status(500).send(`Error al editar los hoteles ${error}`);
+    }
+}
+
+export const searchRoomsByNumberRoom = async (req, res) => {
+    try {
+        const { numberRoom } = req.body;
+        const regex = new RegExp(numberRoom, 'i');
+        const room = await roomModel.find({ numberRoom: { $regex: regex }, status: true });
+        res.status(200).json(room);
+    } catch (error) {
+        res.status(500).send(`Error al buscar los hoteles ${error}`);
+    }
+};

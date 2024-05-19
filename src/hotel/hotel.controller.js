@@ -15,7 +15,7 @@ export const createHotel = async (req, res) => {
 export const getHotels = async (req, res) => {
   try {
     const hotel = await hotelModel.find({ status: true });
-    res.status(500).json(hotel);
+    res.status(200).json(hotel);
   } catch (error) {
     res.status(500).send(`Error al listar los hoteles ${error}`);
   }
@@ -25,7 +25,7 @@ export const getHotelsByAdministrator = async (req, res) => {
   const { idUser } = req.params;
   try {
     const hotel = await hotelModel.find({ status: true, administrator: idUser });
-    res.status(500).json(hotel);
+    res.status(200).json(hotel);
   } catch (error) {
     res.status(500).send(`Error al listar los hoteles ${error}`);
   }
