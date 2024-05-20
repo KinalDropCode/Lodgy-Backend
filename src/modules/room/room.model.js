@@ -12,10 +12,11 @@ const RoomSchema = Schema({
   desc: {
     type: String,
   },
-  availability: [{
-    type: Number,  // Specify the type of each element in the array
-    required: [true, "The availability date is required"],
-  }],
+  availability: {
+    type: String,
+    required: true,
+    enum: ["ENABLED", "DISABLED"],
+  },
   capacity: {
     type: Number,
     required: [true, "The capacity is required"],
