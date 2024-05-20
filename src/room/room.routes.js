@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { createRoom, getRooms, getRoomsByAdministrator, deleteRoom, editRoom, searchRoomsByNumberRoom } from './room.controller.js'
+import { createRoom, getRooms, getRoomsByAdministrator, getRoomsByHotel, deleteRoom, editRoom, searchRoomsByNumberRoom } from './room.controller.js'
 import { validateCampus } from "../middlewares/validate-campus.js";
 import { validateJWT } from '../middlewares/validate-jwt.js';
 
@@ -14,7 +14,12 @@ router.get(
         check("idRoom", "The id is not a valid MongoDB format").isMongoId(),
         validateCampus
     ], getRoomsByAdministrator);
-
+router.get(
+    "/:idHotel", 
+    [
+        check("idHotel", "The id is not valida MongoDB format").isMongoId(),
+        validateCampus
+    ], getRoomsByHotel);
 router.post(
     '/search/',
     [

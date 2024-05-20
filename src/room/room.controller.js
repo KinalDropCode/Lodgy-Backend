@@ -31,6 +31,16 @@ export const getRoomsByAdministrator = async (req, res) => {
     }
 }
 
+export const getRoomsByHotel = async (req, res) => {
+    const { idHotel } = req.params;
+    try {
+        const room = await roomModel.find({ status: true, hotel: idHotel });
+        res.status(200).json(room);
+    } catch (error) {
+        res.status(500).send(`Error al listar los hoteles ${error}`);
+    }
+}
+
 export const deleteRoom = async (req, res) => {
     const { idRoom } = req.params;
     try {
