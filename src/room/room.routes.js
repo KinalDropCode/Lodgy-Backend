@@ -9,17 +9,19 @@ const router = Router()
 router.get('/', getRooms)
 
 router.get(
-    "/:idRoom",
+    "/:idUser",
     [
-        check("idRoom", "The id is not a valid MongoDB format").isMongoId(),
+        check("idUser", "The id is not a valid MongoDB format").isMongoId(),
         validateCampus
     ], getRoomsByAdministrator);
-router.get(
-    "/:idHotel", 
-    [
-        check("idHotel", "The id is not valida MongoDB format").isMongoId(),
-        validateCampus
-    ], getRoomsByHotel);
+
+
+// router.get(
+//     "/:idHotel", 
+//     [
+//         check("idHotel", "The id is not valida MongoDB format").isMongoId(),
+//         validateCampus
+//     ], getRoomsByHotel);
 router.post(
     '/search/',
     [

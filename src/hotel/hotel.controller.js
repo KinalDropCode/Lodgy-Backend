@@ -29,7 +29,6 @@ export const getHotelsByAdministrator = async (req, res) => {
   } catch (error) {
     res.status(500).send(`Error al listar los hoteles ${error}`);
   }
-
 }
 
 export const deleteHotel = async (req, res) => {

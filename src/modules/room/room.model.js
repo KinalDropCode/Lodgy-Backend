@@ -28,6 +28,10 @@ const RoomSchema = Schema({
     type: Schema.Types.ObjectId,
     ref: "Hotel",
   },
+  administrator: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   status: {
     type: Boolean,
     default: true,
