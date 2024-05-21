@@ -16,6 +16,7 @@ const RoomSchema = Schema({
     type: String,
     required: true,
     enum: ["ENABLED", "DISABLED"],
+    default: "ENABLED"
   },
   capacity: {
     type: Number,

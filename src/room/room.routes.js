@@ -16,12 +16,12 @@ router.get(
     ], getRoomsByAdministrator);
 
 
-// router.get(
-//     "/:idHotel", 
-//     [
-//         check("idHotel", "The id is not valida MongoDB format").isMongoId(),
-//         validateCampus
-//     ], getRoomsByHotel);
+router.get(
+    "/hotel/:idHotel",
+    [
+        check("idHotel", "The id is not valida MongoDB format").isMongoId(),
+        validateCampus
+    ], getRoomsByHotel);
 router.post(
     '/search/',
     [
