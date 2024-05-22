@@ -28,8 +28,9 @@ router.get(
 );
 
 router.post(
-    "/:idUser", 
+    "/", 
     [
+        validateJWT,
         check("hotel", "Hotel is required").isMongoId(),
         check("room", "Room is required").isMongoId(),
         check("checkIn", "Check-in date is required and should be a valid date").isString(),
