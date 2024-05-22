@@ -38,15 +38,19 @@ export const getReservation = async (req, res) => {
     }
 }
 
-export const getReservationByAdministrator = async (req, res) => {
+export const getReservationByIdUser = async (req, res) => {
     const { uid } = req.user;
     try {
-        const reservation = await reservationModel.find({ status: true, userId: uid });
+        const reservation = await reservationModel.find({ status: true, userId: uid, })
+            .populate('hotel', 'name')
+            .populate('room', 'numberRoom')
+            .populate('userId', 'name');
         res.status(200).json(reservation);
     } catch (error) {
         res.status(500).send(`Error al listar las reservaciones ${error}`);
     }
 }
+
 
 export const getReservationByHotel = async (req, res) => {
     const { idHotel } = req.params;

@@ -1,7 +1,7 @@
 
 import { Router } from "express";
 import { check } from "express-validator";
-import { createHotel, getHotels, getHotelsByAdministrator, deleteHotel, searchHotelsByName } from "./hotel.controller.js";
+import { createHotel, getHotels, getHotelsByAdministrator, deleteHotel, searchHotelsByName, editHotel } from "./hotel.controller.js";
 import { validateCampus } from "../middlewares/validate-campus.js";
 import { validateJWT } from "../middlewares/validate-jwt.js";
 
@@ -40,7 +40,12 @@ router.delete(
     validateCampus
   ], deleteHotel);
 
-
+router.put(
+  "/:idHotel",
+  [
+    check("idHotel", "The id is not a valid MongoDB format").isMongoId(),
+    validateCampus
+  ], editHotel);
 
 
 

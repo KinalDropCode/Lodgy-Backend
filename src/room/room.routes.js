@@ -8,14 +8,22 @@ const router = Router()
 
 router.get('/', getRooms)
 
-router.get(
-    "/:idEvent",
+router.put(
+    "/:idRoom",
     [
-        check("idEvent", "The id is not a valid MongoDB format").isMongoId(),
+        check("idRoom", "The id is not a valid MongoDB format").isMongoId(),
+        validateCampus
+    ], editRoom);
+
+
+router.get(
+    "/:idUser",
+    [
+        check("idUser", "The id is not a valid MongoDB format").isMongoId(),
         validateCampus
     ], getRoomsByAdministrator);
 router.get(
-    "/hotel/:idHotel", 
+    "/hotel/:idHotel",
     [
         check("idHotel", "The id is not valida MongoDB format").isMongoId(),
         validateCampus

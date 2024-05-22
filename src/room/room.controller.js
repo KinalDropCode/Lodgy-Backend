@@ -24,7 +24,7 @@ export const getRooms = async (req, res) => {
 export const getRoomsByAdministrator = async (req, res) => {
     const { idUser } = req.params;
     try {
-        const room = await roomModel.find({ status: true, administrator: idUser });
+        const room = await roomModel.find({ status: true, administrator: idUser }).populate('hotel', 'name');;
         res.status(200).json(room);
     } catch (error) {
         res.status(500).send(`Error al listar los hoteles ${error}`);

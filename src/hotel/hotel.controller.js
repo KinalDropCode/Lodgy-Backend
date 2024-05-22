@@ -44,7 +44,7 @@ export const deleteHotel = async (req, res) => {
 export const editHotel = async (req, res) => {
   const { idHotel } = req.params;
   try {
-    const { name, address, phone, email, img, des } = req.body;
+    const { name, address, phone, email, img, desc } = req.body;
 
     const updateField = {};
     if (name) updateField.name = name
@@ -52,8 +52,8 @@ export const editHotel = async (req, res) => {
     if (phone) updateField.phone = phone
     if (email) updateField.email = email
     if (img) updateField.img = img
-    if (des) updateField.des = des
-    a
+    if (desc) updateField.desc = desc
+
     const hotel = await hotelModel.findByIdAndUpdate(idHotel, updateField, { new: true });
 
     res.status(200).json(hotel);
