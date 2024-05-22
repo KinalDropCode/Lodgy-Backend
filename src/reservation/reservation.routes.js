@@ -37,7 +37,6 @@ router.post(
         check("checkOut", "Check-out date is required and should be a valid date").isString(),
         check("totalPrice", "Total price is required and should be a number").isNumeric(),
         check("observation", "Observation must be a string").optional().isString(),
-       
         validateCampus
     ], 
     createReservation
