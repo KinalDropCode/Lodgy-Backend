@@ -1,12 +1,56 @@
-import express from 'express'
-import { reservationPost, deleteReservationId, getReservationById, reservationUpdate } from './reservation.controller.js';
+import { Router } from "express";
+import { check } from "express-validator";
+import { createReservation, deleteReservation, getReservation, getReservationByAdministrator, getReservationByHotel } from "./reservation.controller.js";
+import { validateCampus } from "../middlewares/validate-campus.js";
 import { validateJWT } from '../middlewares/validate-jwt.js';
 
-const api = express.Router(); 
-api.post('/create', validateJWT, reservationPost)
-api.delete('/delete/:id', validateJWT, deleteReservationId)
-api.get('/:id', validateJWT, getReservationById)
-api.put('/update/:id', validateJWT, reservationUpdate)
 
+const router = Router();
 
-export default api
+router.get('/', getReservation);
+
+router.get(
+    "/:idReservation", 
+    [
+        check("idReservation", "The id is not a valid MongoDB format").isMongoId(), 
+        validateCampus,
+    ], 
+    getReservationByAdministrator
+);
+
+router.get(
+    "/hotel/:idHotel", 
+    [
+        check("idHotel", "The id is not a valid MongoDB format").isMongoId(),  
+        validateCampus,
+    ], 
+    getReservationByHotel
+);
+
+router.post(
+    "/:idUser", 
+    [
+        check("hotel", "Hotel is required").isMongoId(),
+        check("room", "Room is required").isMongoId(),
+        check("checkIn", "Check-in date is required and should be a valid date").isString(),
+        check("checkOut", "Check-out date is required and should be a valid date").isString(),
+        check("totalPrice", "Total price is required and should be a number").isNumeric(),
+        check("observation", "Observation must be a string").optional().isString(),
+       
+        validateCampus
+    ], 
+    createReservation
+);
+
+router.delete(
+    "/:idReservation", 
+    [
+        
+        check("idReservation", "The id is not a valid MongoDB format").isMongoId(),
+        validateCampus,
+        
+    ], 
+    deleteReservation
+);
+
+export default router;

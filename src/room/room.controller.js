@@ -4,11 +4,11 @@ import hotelModel from "../modules/hotel/hotel.model.js"
 export const createRoom = async (req, res) => {
     const { idUser } = req.params;
     try {
-        const { numberRoom, price, desc, capacity, img, hotel } = req.body;
-        const room = await roomModel.create({ numberRoom, price, desc, capacity, img, hotel, administrator: idUser })
+        const { numberRoom, price, desc, availability, capacity, img, hotel } = req.body;
+        const room = await roomModel.create({ numberRoom, price, desc, availability, capacity, img, hotel, administrator: idUser })
         res.status(201).json(room);
     } catch (error) {
-        res.status(500).send(`Error al crear el hotel ${error}`);
+        res.status(500).send(`Error al crear la habitación ${error}`);
     }
 };
 
@@ -23,12 +23,11 @@ export const getRooms = async (req, res) => {
 
 export const getRoomsByAdministrator = async (req, res) => {
     const { idUser } = req.params;
-    console.log(idUser)
     try {
         const room = await roomModel.find({ status: true, administrator: idUser });
         res.status(200).json(room);
     } catch (error) {
-        res.status(500).send(`Error al listar los habitaciones ${error}`);
+        res.status(500).send(`Error al listar los hoteles ${error}`);
     }
 }
 

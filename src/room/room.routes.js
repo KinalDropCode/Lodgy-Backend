@@ -9,15 +9,13 @@ const router = Router()
 router.get('/', getRooms)
 
 router.get(
-    "/:idUser",
+    "/:idRoom",
     [
-        check("idUser", "The id is not a valid MongoDB format").isMongoId(),
+        check("idRoom", "The id is not a valid MongoDB format").isMongoId(),
         validateCampus
     ], getRoomsByAdministrator);
-
-
 router.get(
-    "/hotel/:idHotel",
+    "/:idHotel", 
     [
         check("idHotel", "The id is not valida MongoDB format").isMongoId(),
         validateCampus
@@ -35,6 +33,7 @@ router.post(
         check("numberRoom", "The number room must be a number").isNumeric(),
         check("price", "The price must be a number").isNumeric(),
         check("capacity", "The capacity must be a number").isNumeric(),
+        check("availability", "The capacity must be a number").isString(),
         validateCampus
     ], createRoom);
 
