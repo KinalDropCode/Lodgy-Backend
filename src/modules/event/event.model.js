@@ -1,29 +1,30 @@
-  import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-const EventSchema = mongoose.Schema({
-  name: {
+const EventSchema = new Schema({
+  idUser: {
     type: String,
-    required: [true, "The name is required"],
+    required: [true, "The user ID is required"],
+  },
+  tipoEvento: {
+    type: String,
+    required: [true, "The event type is required"],
+    enum: ["Conference", "Wedding", "Party", "Meeting", "Workshop"],
+  },
+  desc: {
+    type: String,
   },
   date: {
     type: Date,
     required: [true, "The date is required"],
   },
-  img: {
-    type: String,
-  },
-  desc: {
-    type: String,
-  },
   hotel: {
     type: Schema.Types.ObjectId,
     ref: "Hotel",
-    //required: [true, "Hotel ID is required"],
   },
   extras: {
-    type: String,
+    type: [String], 
   },
-  totalPrice: {
+  total: {
     type: String,
   },
   status: {
@@ -32,14 +33,13 @@ const EventSchema = mongoose.Schema({
   },
 });
 
-EventSchema.methods.addRecurseById = async function(recurseId){
-    this.recurses.push(recurseId);
-    await this.save();
+EventSchema.methods.addRecurseById = async function(recurseId) {
+  this.recurses.push(recurseId);
+  await this.save();
 }
 
-
-EventSchema.methods.toJSON = function(){
-  const { __v, _id, ...event_} = this.toObject();
+EventSchema.methods.toJSON = function() {
+  const { __v, _id, ...event_ } = this.toObject();
   event_.uid = _id;
   return event_;
 }

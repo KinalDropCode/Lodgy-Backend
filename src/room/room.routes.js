@@ -9,9 +9,9 @@ const router = Router()
 router.get('/', getRooms)
 
 router.get(
-    "/:idRoom",
+    "/:idEvent",
     [
-        check("idRoom", "The id is not a valid MongoDB format").isMongoId(),
+        check("idEvent", "The id is not a valid MongoDB format").isMongoId(),
         validateCampus
     ], getRoomsByAdministrator);
 router.get(

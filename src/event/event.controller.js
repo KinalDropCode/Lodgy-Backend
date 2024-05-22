@@ -1,78 +1,73 @@
 import eventModel from "../modules/event/event.model.js";
 import hotelModel from "../modules/hotel/hotel.model.js";
 
-export const deleteEventId = async(req, res) =>{
-  const { id } = req.params;
+export const createEvent = async (req, res) => {
+    const { idUser } = req.params;
+    try {
+        const { tipoEvento, desc, date, hotel, extras, total } = req.body;
+        const event = await eventModel.create({ idUser: idUser, tipoEvento, desc, date, hotel, extras, total })
+        res.status(201).json(event);
+    } catch (error) {
+        res.status(500).send(`Error al crear la habitación ${error}`);
+    }
+};
 
-  await eventModel.findByIdAndUpdate(id, {status: false});
-  const eventCanceled = await eventModel.findById(id);
-  res.status(200).json({
-    msg: "event successfully canceled",
-    eventCanceled,
-  });
-
-}
-
-export const eventPost = async(req, res) =>{
-    try{
-        const { id } = req.params;
-        const{ name, date, checkIn, checkOut, price } = req.body;
-        const allowed = req.user;
-        const event = new eventModel({  
-            name, 
-            date,
-            checkIn, 
-            checkOut,
-            price,
-            hotel: allowed.id,
-        });
-        await event.save();
-
-        const hotel = await hotelModel.findById(id);
-        await hotel.addEventById(event._id);
-
-        res.status(200).json({
-            msg: "event comment",
-            event,
-        });
-
-    }catch (error) {
-        res
-            .status(500)
-            .json({ msg: "error publishing", error: error.message });
+export const getEvent = async (req, res) => {
+    try {
+        const event = await eventModel.find({ status: true });
+        res.status(200).json(event);
+    } catch (error) {
+        res.status(500).send(`Error al listar los hoteles ${error}`);
     }
 }
 
-export const getEventById = async (req, res) =>{
-    try{
-        const { id } = req.params;
-        const event = await eventModel.findById(id);
-        if(!event){
-            return res.status(404).json({ msg: "Event not found" });    
-        }
-        res.status(200).json({ event });
-
-    }catch (error) {
-        res.status(500).json({ msg: "error getting event", error: error.message });
+export const getEventsByAdministrator = async (req, res) => {
+    const { idUser } = req.params;
+    try {
+        const event = await eventModel.find({ status: true, idUser: idUser });
+        res.status(200).json(event);
+    } catch (error) {
+        res.status(500).send(`Error al listar los hoteles ${error}`);
     }
 }
 
+export const getEventsByHotel = async (req, res) => {
+    const { idHotel } = req.params;
+    try {
+        const event = await eventModel.find({ status: true, hotel: idHotel });
+        res.status(200).json(event);
+    } catch (error) {
+        res.status(500).send(`Error al listar los hoteles ${error}`);
+    }
+}
 
+export const deleteEvent = async (req, res) => {
+    const { idEvent } = req.params;
+    try {
+        const event = await eventModel.findByIdAndUpdate(idEvent, { status: false }, { new: true });
+        res.status(200).json(event);
+    } catch (error) {
+        res.status(500).send(`Error al eliminar los hoteles ${error}`);
+    }
+}
 
-export const eventPUT = async(req, res) =>{
-    const { id } = req.params;
-    const{ name, date, checkIn, checkOut, price } = req.body;
-   
-    try{
-        await eventModel.findByIdAndUpdate(id, { name, date, checkIn, checkOut, price })
+export const editRoom = async (req, res) => {
+    const { idEvent } = req.params;
+    try {
+        const { tipoEvento, desc, date, hotel, extras, total } = req.body;
 
-        res.status(200).json({
-            msg: "Event Update",
-        })
+        const updateField = {};
+        if (tipoEvento) updateField.tipoEvento = tipoEvento
+        if (desc) updateField.desc = desc
+        if (date) updateField.date = date
+        if (hotel) updateField.hotel = hotel
+        if (extras) updateField.extras = extras
+        if (total) updateField.total = total
 
-    }catch (error) {
-        res
-            .status(500)
-            .json({ msg: "error publishing", error: error.message });
+        const event = await eventModel.findByIdAndUpdate(idEvent, updateField, { new: true });
+
+        res.status(200).json(event);
+    } catch (error) {
+        res.status(500).send(`Error al editar los hoteles ${error}`);
     }
 }
