@@ -64,17 +64,8 @@ export const editName = async (req, res) => {
   };
 */
 export const deleteUser = async (req, res) => {
-  const { Password } = req.body;
-  const usuarioAutenticado = req.user;
-  const p = await User.findById(usuarioAutenticado.id);
-  const acces = bcryptjs.compareSync(Password, p.password);
-
-  if (!acces) {
-    return res.status(400).send("Incorrect password");
-  }
-
-  await User.findByIdAndUpdate(usuarioAutenticado.id, { status: false });
-
+  const { uid } = req.user
+  await User.findByIdAndUpdate(uid, { status: false }, { new: true });
   res.status(200).json({
     msg: "User Deleted",
   });

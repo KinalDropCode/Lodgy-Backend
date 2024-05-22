@@ -11,6 +11,7 @@ const router = Router();
 
 router.get(
     "/",
+    [validateJWT, validateCampus],
     getReservationByIdUser
 );
 
