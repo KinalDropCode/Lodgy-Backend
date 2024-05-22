@@ -39,9 +39,9 @@ export const getReservation = async (req, res) => {
 }
 
 export const getReservationByAdministrator = async (req, res) => {
-    const { idUser } = req.params;
+    const { uid } = req.user;
     try {
-        const reservation = await reservationModel.find({ status: true, administrator: idUser });
+        const reservation = await reservationModel.find({ status: true, userId: uid });
         res.status(200).json(reservation);
     } catch (error) {
         res.status(500).send(`Error al listar las reservaciones ${error}`);
