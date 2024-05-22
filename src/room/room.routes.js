@@ -15,7 +15,7 @@ router.get(
         validateCampus
     ], getRoomsByAdministrator);
 router.get(
-    "/:idHotel", 
+    "/hotel/:idHotel", 
     [
         check("idHotel", "The id is not valida MongoDB format").isMongoId(),
         validateCampus
@@ -33,7 +33,6 @@ router.post(
         check("numberRoom", "The number room must be a number").isNumeric(),
         check("price", "The price must be a number").isNumeric(),
         check("capacity", "The capacity must be a number").isNumeric(),
-        check("availability", "The capacity must be a number").isString(),
         validateCampus
     ], createRoom);
 
