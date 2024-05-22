@@ -2,10 +2,10 @@ import eventModel from "../modules/event/event.model.js";
 import hotelModel from "../modules/hotel/hotel.model.js";
 
 export const createEvent = async (req, res) => {
-    const { idUser } = req.params;
+    const { uid } = req.user;
     try {
         const { tipoEvento, desc, date, hotel, extras, total } = req.body;
-        const event = await eventModel.create({ idUser: idUser, tipoEvento, desc, date, hotel, extras, total })
+        const event = await eventModel.create({ idUser: uid, tipoEvento, desc, date, hotel, extras, total })
         res.status(201).json(event);
     } catch (error) {
         res.status(500).send(`Error al crear la habitación ${error}`);

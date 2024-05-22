@@ -24,8 +24,9 @@ router.get(
     ], getEventsByHotel);
 
 router.post(
-    "/:idUser",
+    "/",
     [
+        validateJWT,
         validateCampus
     ], createEvent);
 

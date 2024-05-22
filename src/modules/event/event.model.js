@@ -22,7 +22,7 @@ const EventSchema = new Schema({
     ref: "Hotel",
   },
   extras: {
-    type: [String], 
+    type: [String],
   },
   total: {
     type: String,
