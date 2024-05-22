@@ -6,8 +6,8 @@ import reservationModel from "../modules/reservation/reservation.model.js";
 export const createReservation = async (req, res) => {
     const { idUser } = req.params;
     try {
-        const {userId,  hotel, room, checkIn, checkOut, totalPrice, observation} = req.body;
-        const reservation = await reservationModel.create({ userId, hotel, room, checkIn, checkOut, totalPrice, observation, administrator: idUser })
+        const {hotel, room, checkIn, checkOut, totalPrice, observation} = req.body;
+        const reservation = await reservationModel.create({ hotel, room, checkIn, checkOut, totalPrice, observation, administrator: idUser })
         res.status(201).json(reservation);
     } catch (error) {
         res.status(500).send(`Error al crear la reservación ${error}`);
