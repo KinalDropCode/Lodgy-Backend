@@ -1,0 +1,233 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "lodgy",
+    "collectionId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+    "dateExported": "2024-04-26T16:05:00.636Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "hotel",
+            "containerId": "",
+            "created": "2024-04-26T13:43:53.818Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
+            "name": "User",
+            "containerId": "",
+            "created": "2024-04-26T13:47:21.585Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "7ff9c1c9-2947-41c1-9887-2d50a2b47323",
+            "name": "review",
+            "containerId": "",
+            "created": "2024-04-26T14:55:15.347Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "a86a8de5-001b-4934-8bd4-5f6b260784ba",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "getName",
+            "url": "http://localhost:3000/lodgy/v1/hotel/search/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-04-26T13:41:31.157Z",
+            "modified": "2024-04-26T14:09:03.839Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYjIwZjJjZWYzY2NjNGM5MzcyMDkiLCJlbWFpbCI6ImRhbmdlbEBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQxMzk2OTcsImV4cCI6MTcxNDM0MTI5N30.dA0SbA6_7NK59lBuNSpANEkm4J18KDIXzaC2NuqF3TI"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Hotel Felicidad\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "bb72735a-aa46-4f84-a9b4-6256d04d44dd",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "getAllHotels",
+            "url": "http://localhost:3000/lodgy/v1/hotel",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-04-26T13:44:20.514Z",
+            "modified": "2024-04-26T13:56:13.923Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYjIwZjJjZWYzY2NjNGM5MzcyMDkiLCJlbWFpbCI6ImRhbmdlbEBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQxMzk2OTcsImV4cCI6MTcxNDM0MTI5N30.dA0SbA6_7NK59lBuNSpANEkm4J18KDIXzaC2NuqF3TI"
+                }
+            ]
+        },
+        {
+            "_id": "2aded5c3-f300-4270-a292-b5479e990263",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "register",
+            "url": "http://localhost:3000/lodgy/v1/hotel/register",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-04-26T13:45:14.337Z",
+            "modified": "2024-04-26T15:32:31.189Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYzhkMzFkNzg2MTZiMzEwMTYyMTAiLCJlbWFpbCI6ImRhbmdlbDExQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNDE0NTQ5OCwiZXhwIjoxNzE0MzQ3MDk4fQ.LL1wAgWVntHj6XcDUvFRO1v1UGBxOHoQkHgq44mF9lU"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Hotel la Alegria2\",\n  \"address\":\"16 calle\",\n  \"phone\":\"12345667\",\n  \"email\":\"hotell1a@gmail.com\"\n  \n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "31dce7a6-cf89-49e1-98dd-5fc497e8b25f",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "deleteHotel",
+            "url": "http://localhost:3000/lodgy/v1/hotel/662bb2e52cef3ccc4c937215",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-04-26T13:46:12.953Z",
+            "modified": "2024-04-26T14:13:38.738Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYjIwZjJjZWYzY2NjNGM5MzcyMDkiLCJlbWFpbCI6ImRhbmdlbEBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQxMzk2OTcsImV4cCI6MTcxNDM0MTI5N30.dA0SbA6_7NK59lBuNSpANEkm4J18KDIXzaC2NuqF3TI"
+                }
+            ]
+        },
+        {
+            "_id": "b9fd76c9-a3a3-4be6-8177-910209cf696b",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "55e39b11-dd6c-4518-b22e-1b6be0f5bd4c",
+            "name": "putHotel",
+            "url": "http://localhost:3000/lodgy/v1/hotel/name/662bb2e52cef3ccc4c937215",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-04-26T13:46:48.681Z",
+            "modified": "2024-04-26T14:03:52.461Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYjIwZjJjZWYzY2NjNGM5MzcyMDkiLCJlbWFpbCI6ImRhbmdlbEBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTQxMzk2OTcsImV4cCI6MTcxNDM0MTI5N30.dA0SbA6_7NK59lBuNSpANEkm4J18KDIXzaC2NuqF3TI"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n\"name\":\"Hotel Felicidad\",\n\"address\":\"12 calle\",\n\"phone\":\"87654321\",\n\"email\":\"hotelfelicidad@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3a91c3a3-7418-493c-a80a-8d7fefa0ccf6",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
+            "name": "login",
+            "url": "http://localhost:3000/lodgy/v1/auth/login",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-04-26T13:47:50.224Z",
+            "modified": "2024-04-26T15:31:38.099Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"dangel11@admin.org.gt\",\n  \"password\":\"123456\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "6dd68767-7180-4c05-8cee-33a7b4c0300b",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
+            "name": "register",
+            "url": "http://localhost:3000/lodgy/v1/auth/register",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-04-26T13:47:57.264Z",
+            "modified": "2024-04-26T15:31:31.370Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\"email\":\"dangel11@admin.org.gt\",\n\"name\":\"angelon11\",\n\"password\": \"123456\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "91571cce-7534-4d86-b868-87c0320ddee8",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
+            "name": "editUser",
+            "url": "http://localhost:3000/lodgy/v1/auth/userEdit",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2024-04-26T14:38:37.549Z",
+            "modified": "2024-04-26T14:41:45.990Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYmQwMjIxMTI5YzIwM2ZhY2ZhZGEiLCJlbWFpbCI6ImRhbmdlbDFAYWRtaW4ub3JnLmd0IiwiaWF0IjoxNzE0MTQyNDcyLCJleHAiOjE3MTQzNDQwNzJ9.0CkxpGGM8b1n9gMLsK79rhQcIftzrItQwMUAWfDw9rc"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "\n  {\n\"name\":\"angelon2\",\n\"email\":\"dangel2@admin.org.gt\",\n\"password\": \"123456\"\n\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "4106e151-4df9-4bcf-b41c-8af3f4f7e67b",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "7ff9c1c9-2947-41c1-9887-2d50a2b47323",
+            "name": "reviewPost",
+            "url": "http://localhost:3000/lodgy/v1/review/post",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-04-26T14:55:24.778Z",
+            "modified": "2024-04-26T15:00:21.909Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYmQwMjIxMTI5YzIwM2ZhY2ZhZGEiLCJlbWFpbCI6ImRhbmdlbDFAYWRtaW4ub3JnLmd0IiwiaWF0IjoxNzE0MTQyNDcyLCJleHAiOjE3MTQzNDQwNzJ9.0CkxpGGM8b1n9gMLsK79rhQcIftzrItQwMUAWfDw9rc"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"review\":\"El hotel estaba muy shuco\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d7df7358-552c-454b-b767-8261070a0ea0",
+            "colId": "6cd0307e-0b06-4011-a2aa-acae46b60de5",
+            "containerId": "74d370b6-83d2-4140-ad8f-9f262eecdce3",
+            "name": "deleteUser",
+            "url": "http://localhost:3000/lodgy/v1/auth/",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2024-04-26T15:26:41.876Z",
+            "modified": "2024-04-26T15:30:00.517Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjJiYmQwMjIxMTI5YzIwM2ZhY2ZhZGEiLCJlbWFpbCI6ImRhbmdlbDFAYWRtaW4ub3JnLmd0IiwiaWF0IjoxNzE0MTQyNDcyLCJleHAiOjE3MTQzNDQwNzJ9.0CkxpGGM8b1n9gMLsK79rhQcIftzrItQwMUAWfDw9rc"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\":\"123456\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "5QmZcBu5pQYcnKtKkMNPFJ4wh1ik7bgxFoNfBG1XgU25R4HE7ibMEHicQdC1sl0kf5mraSu3K6p-obsVzM45Pw"
+}
